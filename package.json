@@ -1,0 +1,15 @@
+{
+  "name": "workspace",
+  "version": "1.0.0",
+  "description": "A modern, responsive web application for discovering local places and generating personalized first date ideas. Built with HTML, Tailwind CSS, and JavaScript with a mobile-first design approach.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "openai": "^5.8.2"
+  }
+}

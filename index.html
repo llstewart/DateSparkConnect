@@ -86,6 +86,10 @@
                         <i data-feather="search" class="w-4 h-4 inline mr-2"></i>
                         Explore
                     </button>
+                    <button id="stories-btn" class="nav-btn px-4 py-2 rounded-lg font-medium transition-all duration-200 text-gray-600 hover:bg-gray-100">
+                        <i data-feather="book-open" class="w-4 h-4 inline mr-2"></i>
+                        Stories
+                    </button>
                     <button id="nightlife-btn" class="nav-btn px-4 py-2 rounded-lg font-medium transition-all duration-200 text-gray-600 hover:bg-gray-100">
                         <i data-feather="moon" class="w-4 h-4 inline mr-2"></i>
                         Nightlife
@@ -330,6 +334,87 @@
             </div>
         </section>
 
+        <!-- Stories Section - NEW UNIQUE FEATURE -->
+        <section id="stories-section" class="section-hidden">
+            <div class="mb-8">
+                <h2 class="text-3xl font-bold text-gray-900 mb-2">Local Stories & Cultural Bridge</h2>
+                <p class="text-gray-600">Connect with locals and discover authentic stories behind every place</p>
+            </div>
+            
+            <!-- Stories Feature Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                <!-- Story Discovery Card -->
+                <div class="bg-gradient-to-br from-emerald-500 to-teal-600 rounded-xl p-6 text-white relative overflow-hidden">
+                    <div class="relative z-10">
+                        <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center mb-4">
+                            <i data-feather="book-open" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Discover Stories</h3>
+                        <p class="text-white/90 mb-4">Learn the hidden history and authentic stories behind local places from residents who've lived them.</p>
+                        <button class="bg-white/20 hover:bg-white/30 text-white px-4 py-2 rounded-lg text-sm font-medium transition-all backdrop-blur-sm">
+                            Explore Stories
+                        </button>
+                    </div>
+                    <div class="absolute -top-4 -right-4 w-20 h-20 bg-white/10 rounded-full"></div>
+                </div>
+                
+                <!-- Cultural Exchange Card -->
+                <div class="bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl p-6 text-white relative overflow-hidden">
+                    <div class="relative z-10">
+                        <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center mb-4">
+                            <i data-feather="users" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Meet Locals</h3>
+                        <p class="text-white/90 mb-4">Connect with friendly locals who can show you authentic experiences beyond tourist spots.</p>
+                        <button class="bg-white/20 hover:bg-white/30 text-white px-4 py-2 rounded-lg text-sm font-medium transition-all backdrop-blur-sm">
+                            Connect Now
+                        </button>
+                    </div>
+                    <div class="absolute -top-4 -right-4 w-20 h-20 bg-white/10 rounded-full"></div>
+                </div>
+                
+                <!-- Share Experience Card -->
+                <div class="bg-gradient-to-br from-orange-500 to-red-600 rounded-xl p-6 text-white relative overflow-hidden">
+                    <div class="relative z-10">
+                        <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center mb-4">
+                            <i data-feather="heart" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Share Your Story</h3>
+                        <p class="text-white/90 mb-4">Help others discover your favorite local gems by sharing your personal experiences and memories.</p>
+                        <button class="bg-white/20 hover:bg-white/30 text-white px-4 py-2 rounded-lg text-sm font-medium transition-all backdrop-blur-sm">
+                            Add Story
+                        </button>
+                    </div>
+                    <div class="absolute -top-4 -right-4 w-20 h-20 bg-white/10 rounded-full"></div>
+                </div>
+            </div>
+            
+            <!-- Story Feed -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 mb-8">
+                <div class="flex items-center justify-between mb-6">
+                    <h3 class="text-xl font-bold text-gray-900">Recent Stories</h3>
+                    <div class="flex gap-2">
+                        <button class="px-4 py-2 text-gray-600 hover:text-gray-800 text-sm font-medium border border-gray-300 rounded-lg hover:border-gray-400 transition-colors">
+                            Filter by Location
+                        </button>
+                        <button class="px-4 py-2 bg-emerald-600 text-white rounded-lg text-sm font-medium hover:bg-emerald-700 transition-colors">
+                            Post Story
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Story Cards -->
+                <div id="stories-feed" class="space-y-6">
+                    <!-- Stories will be loaded here -->
+                    <div class="text-center py-12 text-gray-500">
+                        <i data-feather="compass" class="w-12 h-12 mx-auto mb-4 text-gray-300"></i>
+                        <h3 class="text-lg font-medium mb-2">Ready for Real Stories</h3>
+                        <p class="text-sm">Connect to a data source to load authentic local stories and cultural experiences.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Nightlife Section -->
         <section id="nightlife-section" class="section-hidden">
             <div class="mb-8">
@@ -563,20 +648,22 @@
         // Navigation functionality
         const homeBtn = document.getElementById('home-btn');
         const exploreBtn = document.getElementById('explore-btn');
+        const storiesBtn = document.getElementById('stories-btn');
         const nightlifeBtn = document.getElementById('nightlife-btn');
         const dateGeneratorBtn = document.getElementById('date-generator-btn');
         const landingSection = document.getElementById('landing-section');
         const exploreSection = document.getElementById('explore-section');
+        const storiesSection = document.getElementById('stories-section');
         const nightlifeSection = document.getElementById('nightlife-section');
         const dateGeneratorSection = document.getElementById('date-generator-section');
 
         function clearActiveStates() {
-            [homeBtn, exploreBtn, nightlifeBtn, dateGeneratorBtn].forEach(btn => {
+            [homeBtn, exploreBtn, storiesBtn, nightlifeBtn, dateGeneratorBtn].forEach(btn => {
                 btn.classList.remove('bg-blue-100', 'text-blue-700');
                 btn.classList.add('text-gray-600', 'hover:bg-gray-100');
             });
             
-            [landingSection, exploreSection, nightlifeSection, dateGeneratorSection].forEach(section => {
+            [landingSection, exploreSection, storiesSection, nightlifeSection, dateGeneratorSection].forEach(section => {
                 section.classList.add('section-hidden');
                 section.classList.remove('section-visible');
             });
@@ -600,6 +687,15 @@
             exploreSection.classList.add('section-visible', 'fade-in');
         }
 
+        function switchToStories() {
+            clearActiveStates();
+            storiesBtn.classList.add('bg-blue-100', 'text-blue-700');
+            storiesBtn.classList.remove('text-gray-600', 'hover:bg-gray-100');
+            
+            storiesSection.classList.remove('section-hidden');
+            storiesSection.classList.add('section-visible', 'fade-in');
+        }
+
         function switchToNightlife() {
             clearActiveStates();
             nightlifeBtn.classList.add('bg-blue-100', 'text-blue-700');
@@ -620,6 +716,7 @@
 
         homeBtn.addEventListener('click', switchToHome);
         exploreBtn.addEventListener('click', switchToExplore);
+        storiesBtn.addEventListener('click', switchToStories);
         nightlifeBtn.addEventListener('click', switchToNightlife);
         dateGeneratorBtn.addEventListener('click', switchToDateGenerator);
 
@@ -820,6 +917,78 @@
 
         // Initialize places display
         renderPlaces();
+
+        // Stories Section Data and Functionality
+        const storiesData = [];
+
+        // Function to load stories from API
+        function loadStoriesData() {
+            // TODO: Replace with actual API call
+            // Example: fetch('/api/stories').then(response => response.json()).then(data => { storiesData = data; renderStories(); });
+            console.log('Ready to integrate with Stories API');
+        }
+
+        // Stories functionality
+        function renderStories() {
+            const storiesFeed = document.getElementById('stories-feed');
+            
+            if (storiesData.length === 0) {
+                storiesFeed.innerHTML = `
+                    <div class="text-center py-12 text-gray-500">
+                        <i data-feather="compass" class="w-12 h-12 mx-auto mb-4 text-gray-300"></i>
+                        <h3 class="text-lg font-medium mb-2">Ready for Real Stories</h3>
+                        <p class="text-sm">Connect to a data source to load authentic local stories and cultural experiences.</p>
+                    </div>
+                `;
+            } else {
+                storiesFeed.innerHTML = storiesData.map(createStoryCard).join('');
+            }
+            
+            // Re-initialize feather icons
+            feather.replace();
+        }
+
+        function createStoryCard(story) {
+            return `
+                <div class="bg-white rounded-lg p-6 border border-gray-200 hover:shadow-md transition-shadow card-hover">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 bg-gradient-to-r from-emerald-500 to-teal-600 rounded-full flex items-center justify-center text-white font-bold">
+                            ${story.author.charAt(0).toUpperCase()}
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center space-x-2 mb-2">
+                                <h4 class="font-semibold text-gray-900">${story.author}</h4>
+                                <span class="text-xs text-gray-500">${story.timeAgo}</span>
+                                <span class="text-xs bg-emerald-100 text-emerald-800 px-2 py-1 rounded-full">${story.location}</span>
+                            </div>
+                            <h3 class="text-lg font-medium text-gray-900 mb-2">${story.title}</h3>
+                            <p class="text-gray-600 mb-3">${story.excerpt}</p>
+                            <div class="flex items-center justify-between">
+                                <div class="flex space-x-4 text-sm text-gray-500">
+                                    <button class="flex items-center space-x-1 hover:text-emerald-600 transition-colors">
+                                        <i data-feather="heart" class="w-4 h-4"></i>
+                                        <span>${story.likes}</span>
+                                    </button>
+                                    <button class="flex items-center space-x-1 hover:text-emerald-600 transition-colors">
+                                        <i data-feather="message-circle" class="w-4 h-4"></i>
+                                        <span>${story.comments}</span>
+                                    </button>
+                                    <button class="flex items-center space-x-1 hover:text-emerald-600 transition-colors">
+                                        <i data-feather="share-2" class="w-4 h-4"></i>
+                                        <span>Share</span>
+                                    </button>
+                                </div>
+                                <button class="text-emerald-600 hover:text-emerald-700 text-sm font-medium">Read Full Story</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Initialize Stories section
+        loadStoriesData();
+        renderStories();
 
         // Nightlife data - Ready for API integration
         const nightlifeData = [];
