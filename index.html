@@ -221,32 +221,103 @@
                 <p class="text-gray-600">Explore amazing spots in your area</p>
             </div>
             
-            <!-- Search Bar -->
-            <div class="mb-8">
-                <div class="relative max-w-md">
-                    <input type="text" placeholder="Search places..." 
-                           class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200">
-                    <i data-feather="search" class="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400"></i>
+            <!-- Advanced Search and Filters -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 mb-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                    <!-- Search Bar -->
+                    <div class="relative">
+                        <input type="text" id="search-input" placeholder="Search places..." 
+                               class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200">
+                        <i data-feather="search" class="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400"></i>
+                    </div>
+                    
+                    <!-- Location Filter -->
+                    <div class="relative">
+                        <select id="location-filter" class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 appearance-none bg-white">
+                            <option value="">All Locations</option>
+                            <option value="downtown">Downtown</option>
+                            <option value="uptown">Uptown</option>
+                            <option value="midtown">Midtown</option>
+                            <option value="suburbs">Suburbs</option>
+                            <option value="waterfront">Waterfront</option>
+                        </select>
+                        <i data-feather="map-pin" class="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400"></i>
+                        <i data-feather="chevron-down" class="absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400"></i>
+                    </div>
+                    
+                    <!-- Price Range Filter -->
+                    <div class="relative">
+                        <select id="price-filter" class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 appearance-none bg-white">
+                            <option value="">Any Price</option>
+                            <option value="free">Free</option>
+                            <option value="budget">Budget ($)</option>
+                            <option value="moderate">Moderate ($$)</option>
+                            <option value="expensive">Premium ($$$)</option>
+                        </select>
+                        <i data-feather="dollar-sign" class="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400"></i>
+                        <i data-feather="chevron-down" class="absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400"></i>
+                    </div>
+                    
+                    <!-- Rating Filter -->
+                    <div class="relative">
+                        <select id="rating-filter" class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 appearance-none bg-white">
+                            <option value="">Any Rating</option>
+                            <option value="4.5">4.5+ Stars</option>
+                            <option value="4.0">4.0+ Stars</option>
+                            <option value="3.5">3.5+ Stars</option>
+                            <option value="3.0">3.0+ Stars</option>
+                        </select>
+                        <i data-feather="star" class="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400"></i>
+                        <i data-feather="chevron-down" class="absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400"></i>
+                    </div>
                 </div>
-            </div>
-            
-            <!-- Filter Buttons -->
-            <div class="flex flex-wrap gap-2 mb-8">
-                <button class="filter-btn px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium hover:bg-blue-200 transition-colors">
-                    All
-                </button>
-                <button class="filter-btn px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors">
-                    Restaurants
-                </button>
-                <button class="filter-btn px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors">
-                    Entertainment
-                </button>
-                <button class="filter-btn px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors">
-                    Parks
-                </button>
-                <button class="filter-btn px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors">
-                    Shopping
-                </button>
+                
+                <!-- Category Filter Buttons -->
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <button class="category-filter active px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium hover:bg-blue-200 transition-colors" data-category="all">
+                        <i data-feather="grid" class="w-4 h-4 inline mr-1"></i>
+                        All
+                    </button>
+                    <button class="category-filter px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors" data-category="restaurants">
+                        <i data-feather="utensils" class="w-4 h-4 inline mr-1"></i>
+                        Restaurants
+                    </button>
+                    <button class="category-filter px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors" data-category="entertainment">
+                        <i data-feather="film" class="w-4 h-4 inline mr-1"></i>
+                        Entertainment
+                    </button>
+                    <button class="category-filter px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors" data-category="parks">
+                        <i data-feather="tree-pine" class="w-4 h-4 inline mr-1"></i>
+                        Parks
+                    </button>
+                    <button class="category-filter px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors" data-category="shopping">
+                        <i data-feather="shopping-bag" class="w-4 h-4 inline mr-1"></i>
+                        Shopping
+                    </button>
+                    <button class="category-filter px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors" data-category="culture">
+                        <i data-feather="camera" class="w-4 h-4 inline mr-1"></i>
+                        Culture
+                    </button>
+                    <button class="category-filter px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors" data-category="cafes">
+                        <i data-feather="coffee" class="w-4 h-4 inline mr-1"></i>
+                        Cafes
+                    </button>
+                </div>
+                
+                <!-- Filter Actions -->
+                <div class="flex justify-between items-center">
+                    <div class="text-sm text-gray-600">
+                        <span id="results-count">12 places found</span>
+                    </div>
+                    <div class="flex gap-2">
+                        <button id="clear-filters" class="px-4 py-2 text-gray-600 hover:text-gray-800 text-sm font-medium transition-colors">
+                            Clear Filters
+                        </button>
+                        <button id="apply-filters" class="px-4 py-2 bg-blue-600 text-white rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors">
+                            Apply Filters
+                        </button>
+                    </div>
+                </div>
             </div>
             
             <!-- Places Grid -->
@@ -429,55 +500,154 @@
         const placesData = [
             {
                 name: "Central Park Coffee",
+                category: "cafes",
                 type: "Cafe",
                 rating: 4.8,
+                location: "downtown",
+                price: "budget",
                 description: "Cozy coffee shop with artisanal brews and local pastries",
                 image: "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=400&h=250&fit=crop",
                 tags: ["Coffee", "Breakfast", "Wi-Fi"]
             },
             {
                 name: "Riverside Walking Trail",
+                category: "parks",
                 type: "Park",
                 rating: 4.6,
+                location: "waterfront",
+                price: "free",
                 description: "Scenic walking path along the river with beautiful views",
                 image: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&h=250&fit=crop",
                 tags: ["Nature", "Walking", "Free"]
             },
             {
                 name: "The Art Gallery",
+                category: "culture",
                 type: "Culture",
                 rating: 4.7,
+                location: "midtown",
+                price: "moderate",
                 description: "Contemporary art gallery featuring local and international artists",
                 image: "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400&h=250&fit=crop",
                 tags: ["Art", "Culture", "Indoor"]
             },
             {
                 name: "Mario's Italian Bistro",
+                category: "restaurants",
                 type: "Restaurant",
                 rating: 4.9,
+                location: "downtown",
+                price: "expensive",
                 description: "Authentic Italian cuisine in a romantic atmosphere",
                 image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400&h=250&fit=crop",
                 tags: ["Italian", "Dinner", "Romantic"]
             },
             {
                 name: "Adventure Mini Golf",
+                category: "entertainment",
                 type: "Entertainment",
                 rating: 4.5,
+                location: "suburbs",
+                price: "budget",
                 description: "Fun 18-hole mini golf course with creative obstacles",
                 image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=250&fit=crop",
                 tags: ["Fun", "Games", "Family"]
             },
             {
                 name: "Sunset Rooftop Bar",
+                category: "restaurants",
                 type: "Bar",
                 rating: 4.8,
+                location: "uptown",
+                price: "expensive",
                 description: "Stylish rooftop bar with panoramic city views",
                 image: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=400&h=250&fit=crop",
                 tags: ["Drinks", "Views", "Evening"]
+            },
+            {
+                name: "Ocean View Cinema",
+                category: "entertainment",
+                type: "Cinema",
+                rating: 4.4,
+                location: "waterfront",
+                price: "moderate",
+                description: "Modern movie theater with comfortable seating and ocean views",
+                image: "https://images.unsplash.com/photo-1489185078463-c2709f30e4c2?w=400&h=250&fit=crop",
+                tags: ["Movies", "Entertainment", "Views"]
+            },
+            {
+                name: "Green Market Cafe",
+                category: "cafes",
+                type: "Cafe",
+                rating: 4.6,
+                location: "suburbs",
+                price: "budget",
+                description: "Farm-to-table cafe with fresh, locally sourced ingredients",
+                image: "https://images.unsplash.com/photo-1559925393-8be0ec4767c8?w=400&h=250&fit=crop",
+                tags: ["Organic", "Healthy", "Local"]
+            },
+            {
+                name: "Metropolitan Museum",
+                category: "culture",
+                type: "Museum",
+                rating: 4.8,
+                location: "midtown",
+                price: "moderate",
+                description: "Historic museum with extensive collections and special exhibitions",
+                image: "https://images.unsplash.com/photo-1566127992631-137a642a90f4?w=400&h=250&fit=crop",
+                tags: ["History", "Education", "Indoor"]
+            },
+            {
+                name: "Harbor Park",
+                category: "parks",
+                type: "Park",
+                rating: 4.5,
+                location: "waterfront",
+                price: "free",
+                description: "Beautiful waterfront park with playground and picnic areas",
+                image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=250&fit=crop",
+                tags: ["Family", "Picnic", "Water Views"]
+            },
+            {
+                name: "Urban Outfitters Plaza",
+                category: "shopping",
+                type: "Shopping",
+                rating: 4.2,
+                location: "downtown",
+                price: "moderate",
+                description: "Popular shopping center with trendy brands and food court",
+                image: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=400&h=250&fit=crop",
+                tags: ["Fashion", "Food Court", "Brands"]
+            },
+            {
+                name: "Bella's Steakhouse",
+                category: "restaurants",
+                type: "Restaurant",
+                rating: 4.7,
+                location: "uptown",
+                price: "expensive",
+                description: "Premium steakhouse with elegant atmosphere and fine wines",
+                image: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=400&h=250&fit=crop",
+                tags: ["Steakhouse", "Fine Dining", "Wine"]
             }
         ];
 
         function createPlaceCard(place) {
+            const priceSymbols = {
+                'free': 'Free',
+                'budget': '$',
+                'moderate': '$$',
+                'expensive': '$$$'
+            };
+            
+            const locationNames = {
+                'downtown': 'Downtown',
+                'uptown': 'Uptown',
+                'midtown': 'Midtown',
+                'suburbs': 'Suburbs',
+                'waterfront': 'Waterfront'
+            };
+            
             return `
                 <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden card-hover">
                     <div class="aspect-w-16 aspect-h-9 bg-gray-200">
@@ -492,6 +662,12 @@
                             </div>
                         </div>
                         <h3 class="text-lg font-semibold text-gray-900 mb-2">${place.name}</h3>
+                        <div class="flex items-center text-gray-500 text-sm mb-2">
+                            <i data-feather="map-pin" class="w-4 h-4 mr-1"></i>
+                            <span class="mr-3">${locationNames[place.location] || place.location}</span>
+                            <i data-feather="dollar-sign" class="w-4 h-4 mr-1"></i>
+                            <span>${priceSymbols[place.price] || place.price}</span>
+                        </div>
                         <p class="text-gray-600 text-sm mb-4">${place.description}</p>
                         <div class="flex flex-wrap gap-2">
                             ${place.tags.map(tag => `<span class="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-full">${tag}</span>`).join('')}
@@ -501,12 +677,135 @@
             `;
         }
 
+        // Filtering functionality
+        let currentFilters = {
+            search: '',
+            location: '',
+            price: '',
+            rating: '',
+            category: 'all'
+        };
+
+        function filterPlaces() {
+            return placesData.filter(place => {
+                // Search filter
+                if (currentFilters.search && !place.name.toLowerCase().includes(currentFilters.search.toLowerCase()) &&
+                    !place.description.toLowerCase().includes(currentFilters.search.toLowerCase()) &&
+                    !place.tags.some(tag => tag.toLowerCase().includes(currentFilters.search.toLowerCase()))) {
+                    return false;
+                }
+
+                // Location filter
+                if (currentFilters.location && place.location !== currentFilters.location) {
+                    return false;
+                }
+
+                // Price filter
+                if (currentFilters.price && place.price !== currentFilters.price) {
+                    return false;
+                }
+
+                // Rating filter
+                if (currentFilters.rating && place.rating < parseFloat(currentFilters.rating)) {
+                    return false;
+                }
+
+                // Category filter
+                if (currentFilters.category !== 'all' && place.category !== currentFilters.category) {
+                    return false;
+                }
+
+                return true;
+            });
+        }
+
         function renderPlaces() {
             const placesGrid = document.getElementById('places-grid');
-            placesGrid.innerHTML = placesData.map(createPlaceCard).join('');
+            const filteredPlaces = filterPlaces();
+            placesGrid.innerHTML = filteredPlaces.map(createPlaceCard).join('');
+            
+            // Update results count
+            const resultsCount = document.getElementById('results-count');
+            resultsCount.textContent = `${filteredPlaces.length} places found`;
+            
             // Re-initialize feather icons for new content
             feather.replace();
         }
+
+        // Filter event listeners
+        document.getElementById('search-input').addEventListener('input', (e) => {
+            currentFilters.search = e.target.value;
+            renderPlaces();
+        });
+
+        document.getElementById('location-filter').addEventListener('change', (e) => {
+            currentFilters.location = e.target.value;
+            renderPlaces();
+        });
+
+        document.getElementById('price-filter').addEventListener('change', (e) => {
+            currentFilters.price = e.target.value;
+            renderPlaces();
+        });
+
+        document.getElementById('rating-filter').addEventListener('change', (e) => {
+            currentFilters.rating = e.target.value;
+            renderPlaces();
+        });
+
+        // Category filter buttons
+        document.querySelectorAll('.category-filter').forEach(button => {
+            button.addEventListener('click', (e) => {
+                // Remove active class from all buttons
+                document.querySelectorAll('.category-filter').forEach(btn => {
+                    btn.classList.remove('active', 'bg-blue-100', 'text-blue-700');
+                    btn.classList.add('bg-gray-100', 'text-gray-700');
+                });
+                
+                // Add active class to clicked button
+                e.target.classList.add('active', 'bg-blue-100', 'text-blue-700');
+                e.target.classList.remove('bg-gray-100', 'text-gray-700');
+                
+                // Update filter
+                currentFilters.category = e.target.dataset.category;
+                renderPlaces();
+            });
+        });
+
+        // Clear filters button
+        document.getElementById('clear-filters').addEventListener('click', () => {
+            currentFilters = {
+                search: '',
+                location: '',
+                price: '',
+                rating: '',
+                category: 'all'
+            };
+            
+            // Reset form inputs
+            document.getElementById('search-input').value = '';
+            document.getElementById('location-filter').value = '';
+            document.getElementById('price-filter').value = '';
+            document.getElementById('rating-filter').value = '';
+            
+            // Reset category buttons
+            document.querySelectorAll('.category-filter').forEach(btn => {
+                btn.classList.remove('active', 'bg-blue-100', 'text-blue-700');
+                btn.classList.add('bg-gray-100', 'text-gray-700');
+            });
+            document.querySelector('.category-filter[data-category="all"]').classList.add('active', 'bg-blue-100', 'text-blue-700');
+            document.querySelector('.category-filter[data-category="all"]').classList.remove('bg-gray-100', 'text-gray-700');
+            
+            renderPlaces();
+        });
+
+        // Apply filters button (for mobile UX)
+        document.getElementById('apply-filters').addEventListener('click', () => {
+            renderPlaces();
+        });
+
+        // Initialize places display
+        renderPlaces();
 
         // Date generator functionality
         const dateForm = document.getElementById('date-form');

@@ -26,6 +26,13 @@ Local Explorer is a frontend-focused web application designed to help users disc
 - **Dynamic navigation**: Home, Explore, and Date Ideas buttons with active states
 - **Section switching**: JavaScript-powered smooth transitions between sections
 
+### Advanced Filtering System
+- **Multi-criteria filtering**: Search, location, price range, rating, and category filters
+- **Real-time filtering**: Instant results as users type or change filter options
+- **Category buttons**: Visual filter buttons for restaurants, entertainment, parks, shopping, culture, and cafes
+- **Filter management**: Clear filters and apply filters functionality
+- **Results counter**: Dynamic count display showing filtered results
+
 ### Landing Page Features
 - **Hero section**: Gradient background with animated call-to-action buttons
 - **Features showcase**: Three-column grid highlighting key capabilities
@@ -77,6 +84,7 @@ Currently, the application appears to be primarily frontend-focused with:
 - Any static hosting service
 
 ## Changelog
+- June 29, 2025: Added advanced filtering system to explore section with search, location, price, rating, and category filters. Updated place cards to display location and price information. Enhanced data structure with 12 sample places across different categories and locations.
 - June 29, 2025: Enhanced landing page with hero section, features showcase, stats display, and call-to-action sections. Added three-section navigation (Home/Explore/Date Ideas) with smooth transitions.
 - June 28, 2025: Initial setup
 
