@@ -61,6 +61,55 @@
         .section-visible {
             display: block;
         }
+        
+        /* Custom responsive breakpoints for better mobile support */
+        @media (max-width: 640px) {
+            .nav-btn span {
+                display: none;
+            }
+            .nav-btn {
+                padding: 0.5rem;
+                min-width: 44px; /* Ensure touch-friendly minimum size */
+            }
+            .category-filter, .nightlife-category-filter {
+                font-size: 0.75rem;
+                padding: 0.5rem 0.75rem;
+                min-width: auto;
+            }
+            /* Improve form inputs on mobile */
+            input, select {
+                font-size: 16px; /* Prevent zoom on iOS */
+            }
+            /* Better mobile hero section */
+            .hero-section {
+                padding: 3rem 0;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2rem !important;
+                line-height: 2.25rem !important;
+            }
+            .hero-subtitle {
+                font-size: 1.125rem !important;
+            }
+            .stat-number {
+                font-size: 2rem !important;
+            }
+        }
+        
+        /* Horizontal scrolling for filter buttons on small screens */
+        @media (max-width: 640px) {
+            .filter-buttons-container {
+                overflow-x: auto;
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+            }
+            .filter-buttons-container::-webkit-scrollbar {
+                display: none;
+            }
+        }
     </style>
 </head>
 <body class="bg-gray-50 min-h-screen">
@@ -73,27 +122,26 @@
                     <div class="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
                         <i data-feather="map-pin" class="w-5 h-5 text-white"></i>
                     </div>
-                    <h1 class="text-xl font-bold text-gray-900">Local Explorer</h1>
+                    <h1 class="text-lg sm:text-xl font-bold text-gray-900">Local Explorer</h1>
                 </div>
                 
                 <!-- Navigation -->
-                <nav class="flex space-x-1">
-                    <button id="home-btn" class="nav-btn px-4 py-2 rounded-lg font-medium transition-all duration-200 bg-blue-100 text-blue-700">
-                        <i data-feather="home" class="w-4 h-4 inline mr-2"></i>
-                        Home
+                <nav class="flex space-x-1 overflow-x-auto">
+                    <button id="home-btn" class="nav-btn px-2 sm:px-4 py-2 rounded-lg font-medium transition-all duration-200 bg-blue-100 text-blue-700 whitespace-nowrap">
+                        <i data-feather="home" class="w-4 h-4 inline mr-1 sm:mr-2"></i>
+                        <span class="hidden xs:inline sm:inline">Home</span>
                     </button>
-                    <button id="explore-btn" class="nav-btn px-4 py-2 rounded-lg font-medium transition-all duration-200 text-gray-600 hover:bg-gray-100">
-                        <i data-feather="search" class="w-4 h-4 inline mr-2"></i>
-                        Explore
+                    <button id="explore-btn" class="nav-btn px-2 sm:px-4 py-2 rounded-lg font-medium transition-all duration-200 text-gray-600 hover:bg-gray-100 whitespace-nowrap">
+                        <i data-feather="search" class="w-4 h-4 inline mr-1 sm:mr-2"></i>
+                        <span class="hidden xs:inline sm:inline">Explore</span>
                     </button>
-
-                    <button id="nightlife-btn" class="nav-btn px-4 py-2 rounded-lg font-medium transition-all duration-200 text-gray-600 hover:bg-gray-100">
-                        <i data-feather="moon" class="w-4 h-4 inline mr-2"></i>
-                        Nightlife
+                    <button id="nightlife-btn" class="nav-btn px-2 sm:px-4 py-2 rounded-lg font-medium transition-all duration-200 text-gray-600 hover:bg-gray-100 whitespace-nowrap">
+                        <i data-feather="moon" class="w-4 h-4 inline mr-1 sm:mr-2"></i>
+                        <span class="hidden xs:inline sm:inline">Nightlife</span>
                     </button>
-                    <button id="date-generator-btn" class="nav-btn px-4 py-2 rounded-lg font-medium transition-all duration-200 text-gray-600 hover:bg-gray-100">
-                        <i data-feather="heart" class="w-4 h-4 inline mr-2"></i>
-                        Date Ideas
+                    <button id="date-generator-btn" class="nav-btn px-2 sm:px-4 py-2 rounded-lg font-medium transition-all duration-200 text-gray-600 hover:bg-gray-100 whitespace-nowrap">
+                        <i data-feather="heart" class="w-4 h-4 inline mr-1 sm:mr-2"></i>
+                        <span class="hidden xs:inline sm:inline">Date Ideas</span>
                     </button>
                 </nav>
             </div>
@@ -109,13 +157,13 @@
                 <div class="absolute inset-0 bg-black opacity-20"></div>
                 <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
                     <div class="text-center">
-                        <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 slide-in">
+                        <h1 class="hero-title text-4xl md:text-6xl font-bold text-white mb-6 slide-in">
                             Discover Amazing Places
                             <span class="block text-3xl md:text-5xl bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">
                                 Create Perfect Dates
                             </span>
                         </h1>
-                        <p class="text-xl md:text-2xl text-blue-100 mb-8 max-w-3xl mx-auto fade-in" style="animation-delay: 0.3s;">
+                        <p class="hero-subtitle text-xl md:text-2xl text-blue-100 mb-8 max-w-3xl mx-auto fade-in" style="animation-delay: 0.3s;">
                             Your personal guide to exploring local spots and generating unforgettable first date ideas
                         </p>
                         <div class="flex flex-col sm:flex-row gap-4 justify-center items-center fade-in" style="animation-delay: 0.6s;">
@@ -180,20 +228,20 @@
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
                         <div>
-                            <div class="text-3xl md:text-4xl font-bold text-blue-600 mb-2">1000+</div>
-                            <div class="text-gray-600">Local Places</div>
+                            <div class="stat-number text-3xl md:text-4xl font-bold text-blue-600 mb-2">1000+</div>
+                            <div class="text-gray-600 text-sm sm:text-base">Local Places</div>
                         </div>
                         <div>
-                            <div class="text-3xl md:text-4xl font-bold text-purple-600 mb-2">500+</div>
-                            <div class="text-gray-600">Date Ideas</div>
+                            <div class="stat-number text-3xl md:text-4xl font-bold text-purple-600 mb-2">500+</div>
+                            <div class="text-gray-600 text-sm sm:text-base">Date Ideas</div>
                         </div>
                         <div>
-                            <div class="text-3xl md:text-4xl font-bold text-green-600 mb-2">4.9★</div>
-                            <div class="text-gray-600">User Rating</div>
+                            <div class="stat-number text-3xl md:text-4xl font-bold text-green-600 mb-2">4.9★</div>
+                            <div class="text-gray-600 text-sm sm:text-base">User Rating</div>
                         </div>
                         <div>
-                            <div class="text-3xl md:text-4xl font-bold text-orange-600 mb-2">10K+</div>
-                            <div class="text-gray-600">Happy Users</div>
+                            <div class="stat-number text-3xl md:text-4xl font-bold text-orange-600 mb-2">10K+</div>
+                            <div class="text-gray-600 text-sm sm:text-base">Happy Users</div>
                         </div>
                     </div>
                 </div>
@@ -278,33 +326,33 @@
                 </div>
                 
                 <!-- Category Filter Buttons -->
-                <div class="flex flex-wrap gap-2 mb-4">
-                    <button class="category-filter active px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium hover:bg-blue-200 transition-colors" data-category="all">
-                        <i data-feather="grid" class="w-4 h-4 inline mr-1"></i>
+                <div class="flex flex-wrap gap-2 mb-4 overflow-x-auto pb-2">
+                    <button class="category-filter active px-3 sm:px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-xs sm:text-sm font-medium hover:bg-blue-200 transition-colors whitespace-nowrap" data-category="all">
+                        <i data-feather="grid" class="w-3 h-3 sm:w-4 sm:h-4 inline mr-1"></i>
                         All
                     </button>
-                    <button class="category-filter px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors" data-category="restaurants">
-                        <i data-feather="utensils" class="w-4 h-4 inline mr-1"></i>
+                    <button class="category-filter px-3 sm:px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-xs sm:text-sm font-medium hover:bg-gray-200 transition-colors whitespace-nowrap" data-category="restaurants">
+                        <i data-feather="coffee" class="w-3 h-3 sm:w-4 sm:h-4 inline mr-1"></i>
                         Restaurants
                     </button>
-                    <button class="category-filter px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors" data-category="entertainment">
-                        <i data-feather="film" class="w-4 h-4 inline mr-1"></i>
+                    <button class="category-filter px-3 sm:px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-xs sm:text-sm font-medium hover:bg-gray-200 transition-colors whitespace-nowrap" data-category="entertainment">
+                        <i data-feather="film" class="w-3 h-3 sm:w-4 sm:h-4 inline mr-1"></i>
                         Entertainment
                     </button>
-                    <button class="category-filter px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors" data-category="parks">
-                        <i data-feather="tree-pine" class="w-4 h-4 inline mr-1"></i>
+                    <button class="category-filter px-3 sm:px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-xs sm:text-sm font-medium hover:bg-gray-200 transition-colors whitespace-nowrap" data-category="parks">
+                        <i data-feather="sun" class="w-3 h-3 sm:w-4 sm:h-4 inline mr-1"></i>
                         Parks
                     </button>
-                    <button class="category-filter px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors" data-category="shopping">
-                        <i data-feather="shopping-bag" class="w-4 h-4 inline mr-1"></i>
+                    <button class="category-filter px-3 sm:px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-xs sm:text-sm font-medium hover:bg-gray-200 transition-colors whitespace-nowrap" data-category="shopping">
+                        <i data-feather="shopping-bag" class="w-3 h-3 sm:w-4 sm:h-4 inline mr-1"></i>
                         Shopping
                     </button>
-                    <button class="category-filter px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors" data-category="culture">
-                        <i data-feather="camera" class="w-4 h-4 inline mr-1"></i>
+                    <button class="category-filter px-3 sm:px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-xs sm:text-sm font-medium hover:bg-gray-200 transition-colors whitespace-nowrap" data-category="culture">
+                        <i data-feather="camera" class="w-3 h-3 sm:w-4 sm:h-4 inline mr-1"></i>
                         Culture
                     </button>
-                    <button class="category-filter px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors" data-category="cafes">
-                        <i data-feather="coffee" class="w-4 h-4 inline mr-1"></i>
+                    <button class="category-filter px-3 sm:px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-xs sm:text-sm font-medium hover:bg-gray-200 transition-colors whitespace-nowrap" data-category="cafes">
+                        <i data-feather="coffee" class="w-3 h-3 sm:w-4 sm:h-4 inline mr-1"></i>
                         Cafes
                     </button>
                 </div>
@@ -326,7 +374,7 @@
             </div>
             
             <!-- Places Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="places-grid">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6" id="places-grid">
                 <!-- Place cards will be generated by JavaScript -->
             </div>
         </section>
@@ -391,33 +439,33 @@
                 </div>
                 
                 <!-- Category Filter Buttons -->
-                <div class="flex flex-wrap gap-2 mb-4">
-                    <button class="nightlife-category-filter active px-4 py-2 bg-purple-100 text-purple-700 rounded-full text-sm font-medium hover:bg-purple-200 transition-colors" data-category="all">
-                        <i data-feather="grid" class="w-4 h-4 inline mr-1"></i>
+                <div class="flex flex-wrap gap-2 mb-4 overflow-x-auto pb-2">
+                    <button class="nightlife-category-filter active px-3 sm:px-4 py-2 bg-purple-100 text-purple-700 rounded-full text-xs sm:text-sm font-medium hover:bg-purple-200 transition-colors whitespace-nowrap" data-category="all">
+                        <i data-feather="grid" class="w-3 h-3 sm:w-4 sm:h-4 inline mr-1"></i>
                         All
                     </button>
-                    <button class="nightlife-category-filter px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors" data-category="bars">
-                        <i data-feather="wine" class="w-4 h-4 inline mr-1"></i>
+                    <button class="nightlife-category-filter px-3 sm:px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-xs sm:text-sm font-medium hover:bg-gray-200 transition-colors whitespace-nowrap" data-category="bars">
+                        <i data-feather="coffee" class="w-3 h-3 sm:w-4 sm:h-4 inline mr-1"></i>
                         Bars & Pubs
                     </button>
-                    <button class="nightlife-category-filter px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors" data-category="clubs">
-                        <i data-feather="music" class="w-4 h-4 inline mr-1"></i>
+                    <button class="nightlife-category-filter px-3 sm:px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-xs sm:text-sm font-medium hover:bg-gray-200 transition-colors whitespace-nowrap" data-category="clubs">
+                        <i data-feather="music" class="w-3 h-3 sm:w-4 sm:h-4 inline mr-1"></i>
                         Nightclubs
                     </button>
-                    <button class="nightlife-category-filter px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors" data-category="live-music">
-                        <i data-feather="headphones" class="w-4 h-4 inline mr-1"></i>
+                    <button class="nightlife-category-filter px-3 sm:px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-xs sm:text-sm font-medium hover:bg-gray-200 transition-colors whitespace-nowrap" data-category="live-music">
+                        <i data-feather="headphones" class="w-3 h-3 sm:w-4 sm:h-4 inline mr-1"></i>
                         Live Music
                     </button>
-                    <button class="nightlife-category-filter px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors" data-category="lounges">
-                        <i data-feather="star" class="w-4 h-4 inline mr-1"></i>
+                    <button class="nightlife-category-filter px-3 sm:px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-xs sm:text-sm font-medium hover:bg-gray-200 transition-colors whitespace-nowrap" data-category="lounges">
+                        <i data-feather="star" class="w-3 h-3 sm:w-4 sm:h-4 inline mr-1"></i>
                         Lounges
                     </button>
-                    <button class="nightlife-category-filter px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors" data-category="late-night-eats">
-                        <i data-feather="moon" class="w-4 h-4 inline mr-1"></i>
+                    <button class="nightlife-category-filter px-3 sm:px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-xs sm:text-sm font-medium hover:bg-gray-200 transition-colors whitespace-nowrap" data-category="late-night-eats">
+                        <i data-feather="moon" class="w-3 h-3 sm:w-4 sm:h-4 inline mr-1"></i>
                         Late Night Food
                     </button>
-                    <button class="nightlife-category-filter px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors" data-category="activities">
-                        <i data-feather="gamepad-2" class="w-4 h-4 inline mr-1"></i>
+                    <button class="nightlife-category-filter px-3 sm:px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-xs sm:text-sm font-medium hover:bg-gray-200 transition-colors whitespace-nowrap" data-category="activities">
+                        <i data-feather="activity" class="w-3 h-3 sm:w-4 sm:h-4 inline mr-1"></i>
                         Night Activities
                     </button>
                 </div>
@@ -439,7 +487,7 @@
             </div>
             
             <!-- Nightlife Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="nightlife-grid">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6" id="nightlife-grid">
                 <!-- Nightlife cards will be generated by JavaScript -->
             </div>
         </section>
@@ -451,10 +499,10 @@
                 <p class="text-gray-600">Get personalized date ideas tailored to your preferences</p>
             </div>
             
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-8">
                 <!-- Form -->
-                <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-                    <form id="date-form" class="space-y-6">
+                <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-4 sm:p-6">
+                    <form id="date-form" class="space-y-4 sm:space-y-6">
                         <!-- Location Input -->
                         <div>
                             <label for="location" class="block text-sm font-medium text-gray-700 mb-2">
