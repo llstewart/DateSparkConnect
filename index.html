@@ -78,7 +78,11 @@
                 
                 <!-- Navigation -->
                 <nav class="flex space-x-1">
-                    <button id="explore-btn" class="nav-btn px-4 py-2 rounded-lg font-medium transition-all duration-200 bg-blue-100 text-blue-700">
+                    <button id="home-btn" class="nav-btn px-4 py-2 rounded-lg font-medium transition-all duration-200 bg-blue-100 text-blue-700">
+                        <i data-feather="home" class="w-4 h-4 inline mr-2"></i>
+                        Home
+                    </button>
+                    <button id="explore-btn" class="nav-btn px-4 py-2 rounded-lg font-medium transition-all duration-200 text-gray-600 hover:bg-gray-100">
                         <i data-feather="search" class="w-4 h-4 inline mr-2"></i>
                         Explore
                     </button>
@@ -92,9 +96,126 @@
     </header>
 
     <!-- Main Content -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <!-- Explore Section -->
-        <section id="explore-section" class="section-visible fade-in">
+    <main>
+        <!-- Landing Page Hero Section -->
+        <section id="landing-section" class="section-visible fade-in">
+            <!-- Hero -->
+            <div class="relative bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700 overflow-hidden">
+                <div class="absolute inset-0 bg-black opacity-20"></div>
+                <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+                    <div class="text-center">
+                        <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 slide-in">
+                            Discover Amazing Places
+                            <span class="block text-3xl md:text-5xl bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">
+                                Create Perfect Dates
+                            </span>
+                        </h1>
+                        <p class="text-xl md:text-2xl text-blue-100 mb-8 max-w-3xl mx-auto fade-in" style="animation-delay: 0.3s;">
+                            Your personal guide to exploring local spots and generating unforgettable first date ideas
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center fade-in" style="animation-delay: 0.6s;">
+                            <button onclick="switchToExplore()" class="btn-primary text-white font-semibold py-4 px-8 rounded-lg text-lg hover:opacity-90 transition-all duration-200">
+                                <i data-feather="map-pin" class="w-5 h-5 inline mr-2"></i>
+                                Start Exploring
+                            </button>
+                            <button onclick="switchToDateGenerator()" class="bg-white text-purple-600 font-semibold py-4 px-8 rounded-lg text-lg hover:bg-gray-50 transition-all duration-200">
+                                <i data-feather="heart" class="w-5 h-5 inline mr-2"></i>
+                                Generate Date Ideas
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Decorative elements -->
+                <div class="absolute top-10 left-10 w-20 h-20 bg-yellow-400 rounded-full opacity-20 blur-xl"></div>
+                <div class="absolute bottom-10 right-10 w-32 h-32 bg-pink-400 rounded-full opacity-20 blur-xl"></div>
+                <div class="absolute top-1/2 left-1/4 w-16 h-16 bg-green-400 rounded-full opacity-20 blur-xl"></div>
+            </div>
+
+            <!-- Features Section -->
+            <div class="py-20 bg-gray-50">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-16">
+                        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Why Choose Local Explorer?</h2>
+                        <p class="text-xl text-gray-600 max-w-2xl mx-auto">Discover the perfect blend of local exploration and romantic planning</p>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <!-- Feature 1 -->
+                        <div class="bg-white rounded-xl shadow-lg p-8 text-center card-hover">
+                            <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                                <i data-feather="map" class="w-8 h-8 text-white"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-4">Local Discovery</h3>
+                            <p class="text-gray-600">Explore hidden gems and popular spots in your area with detailed information and reviews</p>
+                        </div>
+                        
+                        <!-- Feature 2 -->
+                        <div class="bg-white rounded-xl shadow-lg p-8 text-center card-hover">
+                            <div class="w-16 h-16 bg-gradient-to-r from-pink-500 to-red-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                                <i data-feather="heart" class="w-8 h-8 text-white"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-4">Perfect Date Ideas</h3>
+                            <p class="text-gray-600">Generate personalized first date suggestions based on your preferences and budget</p>
+                        </div>
+                        
+                        <!-- Feature 3 -->
+                        <div class="bg-white rounded-xl shadow-lg p-8 text-center card-hover">
+                            <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-teal-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                                <i data-feather="smartphone" class="w-8 h-8 text-white"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-4">Mobile-First Design</h3>
+                            <p class="text-gray-600">Seamlessly browse and plan on any device with our responsive, mobile-optimized interface</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats Section -->
+            <div class="py-16 bg-white">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                        <div>
+                            <div class="text-3xl md:text-4xl font-bold text-blue-600 mb-2">1000+</div>
+                            <div class="text-gray-600">Local Places</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl md:text-4xl font-bold text-purple-600 mb-2">500+</div>
+                            <div class="text-gray-600">Date Ideas</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl md:text-4xl font-bold text-green-600 mb-2">4.9★</div>
+                            <div class="text-gray-600">User Rating</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl md:text-4xl font-bold text-orange-600 mb-2">10K+</div>
+                            <div class="text-gray-600">Happy Users</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Section -->
+            <div class="py-20 bg-gradient-to-r from-blue-600 to-purple-600">
+                <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Ready to Start Your Adventure?</h2>
+                    <p class="text-xl text-blue-100 mb-8">Join thousands of others who are discovering amazing places and creating memorable dates</p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <button onclick="switchToExplore()" class="bg-white text-purple-600 font-semibold py-4 px-8 rounded-lg text-lg hover:bg-gray-50 transition-all duration-200">
+                            <i data-feather="search" class="w-5 h-5 inline mr-2"></i>
+                            Explore Places Now
+                        </button>
+                        <button onclick="switchToDateGenerator()" class="border-2 border-white text-white font-semibold py-4 px-8 rounded-lg text-lg hover:bg-white hover:text-purple-600 transition-all duration-200">
+                            <i data-feather="zap" class="w-5 h-5 inline mr-2"></i>
+                            Generate Date Ideas
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <!-- Explore Section -->
+            <section id="explore-section" class="section-hidden">
             <div class="mb-8">
                 <h2 class="text-3xl font-bold text-gray-900 mb-2">Discover Local Places</h2>
                 <p class="text-gray-600">Explore amazing spots in your area</p>
@@ -210,7 +331,7 @@
                         <!-- Generate Button -->
                         <button type="submit" id="generate-btn" 
                                 class="w-full btn-primary text-white font-semibold py-4 px-6 rounded-lg hover:opacity-90 focus:ring-4 focus:ring-blue-300 transition-all duration-200">
-                            <i data-feather="magic-wand" class="w-5 h-5 inline mr-2"></i>
+                            <i data-feather="zap" class="w-5 h-5 inline mr-2"></i>
                             Generate Date Idea
                         </button>
                     </form>
@@ -254,35 +375,53 @@
         feather.replace();
 
         // Navigation functionality
+        const homeBtn = document.getElementById('home-btn');
         const exploreBtn = document.getElementById('explore-btn');
         const dateGeneratorBtn = document.getElementById('date-generator-btn');
+        const landingSection = document.getElementById('landing-section');
         const exploreSection = document.getElementById('explore-section');
         const dateGeneratorSection = document.getElementById('date-generator-section');
 
+        function clearActiveStates() {
+            [homeBtn, exploreBtn, dateGeneratorBtn].forEach(btn => {
+                btn.classList.remove('bg-blue-100', 'text-blue-700');
+                btn.classList.add('text-gray-600', 'hover:bg-gray-100');
+            });
+            
+            [landingSection, exploreSection, dateGeneratorSection].forEach(section => {
+                section.classList.add('section-hidden');
+                section.classList.remove('section-visible');
+            });
+        }
+
+        function switchToHome() {
+            clearActiveStates();
+            homeBtn.classList.add('bg-blue-100', 'text-blue-700');
+            homeBtn.classList.remove('text-gray-600', 'hover:bg-gray-100');
+            
+            landingSection.classList.remove('section-hidden');
+            landingSection.classList.add('section-visible', 'fade-in');
+        }
+
         function switchToExplore() {
+            clearActiveStates();
             exploreBtn.classList.add('bg-blue-100', 'text-blue-700');
             exploreBtn.classList.remove('text-gray-600', 'hover:bg-gray-100');
-            dateGeneratorBtn.classList.remove('bg-blue-100', 'text-blue-700');
-            dateGeneratorBtn.classList.add('text-gray-600', 'hover:bg-gray-100');
             
             exploreSection.classList.remove('section-hidden');
             exploreSection.classList.add('section-visible', 'fade-in');
-            dateGeneratorSection.classList.add('section-hidden');
-            dateGeneratorSection.classList.remove('section-visible');
         }
 
         function switchToDateGenerator() {
+            clearActiveStates();
             dateGeneratorBtn.classList.add('bg-blue-100', 'text-blue-700');
             dateGeneratorBtn.classList.remove('text-gray-600', 'hover:bg-gray-100');
-            exploreBtn.classList.remove('bg-blue-100', 'text-blue-700');
-            exploreBtn.classList.add('text-gray-600', 'hover:bg-gray-100');
             
             dateGeneratorSection.classList.remove('section-hidden');
             dateGeneratorSection.classList.add('section-visible', 'fade-in');
-            exploreSection.classList.add('section-hidden');
-            exploreSection.classList.remove('section-visible');
         }
 
+        homeBtn.addEventListener('click', switchToHome);
         exploreBtn.addEventListener('click', switchToExplore);
         dateGeneratorBtn.addEventListener('click', switchToDateGenerator);
 
