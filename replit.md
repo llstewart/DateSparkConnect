@@ -22,8 +22,8 @@ Local Explorer is a frontend-focused web application designed to help users disc
 ## Key Components
 
 ### Navigation System
-- **Three-section architecture**: Landing page, Explore section, Date Generator section
-- **Dynamic navigation**: Home, Explore, and Date Ideas buttons with active states
+- **Four-section architecture**: Landing page, Explore section, Nightlife section, Date Generator section
+- **Dynamic navigation**: Home, Explore, Nightlife, and Date Ideas buttons with active states
 - **Section switching**: JavaScript-powered smooth transitions between sections
 
 ### Advanced Filtering System
@@ -32,6 +32,13 @@ Local Explorer is a frontend-focused web application designed to help users disc
 - **Category buttons**: Visual filter buttons for restaurants, entertainment, parks, shopping, culture, and cafes
 - **Filter management**: Clear filters and apply filters functionality
 - **Results counter**: Dynamic count display showing filtered results
+
+### Nightlife Section
+- **Specialized nighttime focus**: Dedicated section for evening and night entertainment
+- **Custom filtering**: Time-based (evening/night/late-night), vibe, and group size filters
+- **Nightlife categories**: Bars, nightclubs, live music venues, lounges, late-night food, and activities
+- **Enhanced data**: Operating hours, atmosphere descriptions, and group size recommendations
+- **Purple color theme**: Distinct visual identity separate from general explore section
 
 ### Landing Page Features
 - **Hero section**: Gradient background with animated call-to-action buttons
@@ -84,6 +91,7 @@ Currently, the application appears to be primarily frontend-focused with:
 - Any static hosting service
 
 ## Changelog
+- June 29, 2025: Added dedicated Nightlife section with specialized filters for time (evening/night/late-night), vibe, and group size. Included 8 nightlife venues across categories like bars, clubs, live music, and late-night dining. Features custom purple-themed UI and operating hours display.
 - June 29, 2025: Added advanced filtering system to explore section with search, location, price, rating, and category filters. Updated place cards to display location and price information. Enhanced data structure with 12 sample places across different categories and locations.
 - June 29, 2025: Enhanced landing page with hero section, features showcase, stats display, and call-to-action sections. Added three-section navigation (Home/Explore/Date Ideas) with smooth transitions.
 - June 28, 2025: Initial setup

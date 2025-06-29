@@ -86,6 +86,10 @@
                         <i data-feather="search" class="w-4 h-4 inline mr-2"></i>
                         Explore
                     </button>
+                    <button id="nightlife-btn" class="nav-btn px-4 py-2 rounded-lg font-medium transition-all duration-200 text-gray-600 hover:bg-gray-100">
+                        <i data-feather="moon" class="w-4 h-4 inline mr-2"></i>
+                        Nightlife
+                    </button>
                     <button id="date-generator-btn" class="nav-btn px-4 py-2 rounded-lg font-medium transition-all duration-200 text-gray-600 hover:bg-gray-100">
                         <i data-feather="heart" class="w-4 h-4 inline mr-2"></i>
                         Date Ideas
@@ -326,6 +330,117 @@
             </div>
         </section>
 
+        <!-- Nightlife Section -->
+        <section id="nightlife-section" class="section-hidden">
+            <div class="mb-8">
+                <h2 class="text-3xl font-bold text-gray-900 mb-2">Nightlife & Evening Entertainment</h2>
+                <p class="text-gray-600">Discover the best spots for nighttime fun and entertainment</p>
+            </div>
+            
+            <!-- Nightlife Filters -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 mb-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                    <!-- Search Bar -->
+                    <div class="relative">
+                        <input type="text" id="nightlife-search-input" placeholder="Search nightlife..." 
+                               class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200">
+                        <i data-feather="search" class="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400"></i>
+                    </div>
+                    
+                    <!-- Time Filter -->
+                    <div class="relative">
+                        <select id="time-filter" class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200 appearance-none bg-white">
+                            <option value="">Any Time</option>
+                            <option value="evening">Evening (5-9 PM)</option>
+                            <option value="night">Night (9 PM-2 AM)</option>
+                            <option value="late-night">Late Night (2-6 AM)</option>
+                        </select>
+                        <i data-feather="clock" class="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400"></i>
+                        <i data-feather="chevron-down" class="absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400"></i>
+                    </div>
+                    
+                    <!-- Vibe Filter -->
+                    <div class="relative">
+                        <select id="vibe-filter" class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200 appearance-none bg-white">
+                            <option value="">Any Vibe</option>
+                            <option value="energetic">Energetic & Lively</option>
+                            <option value="relaxed">Chill & Relaxed</option>
+                            <option value="romantic">Romantic & Intimate</option>
+                            <option value="social">Social & Interactive</option>
+                            <option value="upscale">Upscale & Sophisticated</option>
+                        </select>
+                        <i data-feather="zap" class="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400"></i>
+                        <i data-feather="chevron-down" class="absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400"></i>
+                    </div>
+                    
+                    <!-- Group Size Filter -->
+                    <div class="relative">
+                        <select id="group-size-filter" class="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200 appearance-none bg-white">
+                            <option value="">Any Group Size</option>
+                            <option value="couple">Couple (2 people)</option>
+                            <option value="small">Small Group (3-5)</option>
+                            <option value="large">Large Group (6+)</option>
+                            <option value="solo">Solo Friendly</option>
+                        </select>
+                        <i data-feather="users" class="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400"></i>
+                        <i data-feather="chevron-down" class="absolute right-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400"></i>
+                    </div>
+                </div>
+                
+                <!-- Category Filter Buttons -->
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <button class="nightlife-category-filter active px-4 py-2 bg-purple-100 text-purple-700 rounded-full text-sm font-medium hover:bg-purple-200 transition-colors" data-category="all">
+                        <i data-feather="grid" class="w-4 h-4 inline mr-1"></i>
+                        All
+                    </button>
+                    <button class="nightlife-category-filter px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors" data-category="bars">
+                        <i data-feather="wine" class="w-4 h-4 inline mr-1"></i>
+                        Bars & Pubs
+                    </button>
+                    <button class="nightlife-category-filter px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors" data-category="clubs">
+                        <i data-feather="music" class="w-4 h-4 inline mr-1"></i>
+                        Nightclubs
+                    </button>
+                    <button class="nightlife-category-filter px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors" data-category="live-music">
+                        <i data-feather="headphones" class="w-4 h-4 inline mr-1"></i>
+                        Live Music
+                    </button>
+                    <button class="nightlife-category-filter px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors" data-category="lounges">
+                        <i data-feather="star" class="w-4 h-4 inline mr-1"></i>
+                        Lounges
+                    </button>
+                    <button class="nightlife-category-filter px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors" data-category="late-night-eats">
+                        <i data-feather="moon" class="w-4 h-4 inline mr-1"></i>
+                        Late Night Food
+                    </button>
+                    <button class="nightlife-category-filter px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors" data-category="activities">
+                        <i data-feather="gamepad-2" class="w-4 h-4 inline mr-1"></i>
+                        Night Activities
+                    </button>
+                </div>
+                
+                <!-- Filter Actions -->
+                <div class="flex justify-between items-center">
+                    <div class="text-sm text-gray-600">
+                        <span id="nightlife-results-count">8 nightlife spots found</span>
+                    </div>
+                    <div class="flex gap-2">
+                        <button id="clear-nightlife-filters" class="px-4 py-2 text-gray-600 hover:text-gray-800 text-sm font-medium transition-colors">
+                            Clear Filters
+                        </button>
+                        <button id="apply-nightlife-filters" class="px-4 py-2 bg-purple-600 text-white rounded-lg text-sm font-medium hover:bg-purple-700 transition-colors">
+                            Apply Filters
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Nightlife Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="nightlife-grid">
+                <!-- Nightlife cards will be generated by JavaScript -->
+            </div>
+        </section>
+
         <!-- First Date Generator Section -->
         <section id="date-generator-section" class="section-hidden">
             <div class="mb-8">
@@ -448,18 +563,20 @@
         // Navigation functionality
         const homeBtn = document.getElementById('home-btn');
         const exploreBtn = document.getElementById('explore-btn');
+        const nightlifeBtn = document.getElementById('nightlife-btn');
         const dateGeneratorBtn = document.getElementById('date-generator-btn');
         const landingSection = document.getElementById('landing-section');
         const exploreSection = document.getElementById('explore-section');
+        const nightlifeSection = document.getElementById('nightlife-section');
         const dateGeneratorSection = document.getElementById('date-generator-section');
 
         function clearActiveStates() {
-            [homeBtn, exploreBtn, dateGeneratorBtn].forEach(btn => {
+            [homeBtn, exploreBtn, nightlifeBtn, dateGeneratorBtn].forEach(btn => {
                 btn.classList.remove('bg-blue-100', 'text-blue-700');
                 btn.classList.add('text-gray-600', 'hover:bg-gray-100');
             });
             
-            [landingSection, exploreSection, dateGeneratorSection].forEach(section => {
+            [landingSection, exploreSection, nightlifeSection, dateGeneratorSection].forEach(section => {
                 section.classList.add('section-hidden');
                 section.classList.remove('section-visible');
             });
@@ -483,6 +600,15 @@
             exploreSection.classList.add('section-visible', 'fade-in');
         }
 
+        function switchToNightlife() {
+            clearActiveStates();
+            nightlifeBtn.classList.add('bg-blue-100', 'text-blue-700');
+            nightlifeBtn.classList.remove('text-gray-600', 'hover:bg-gray-100');
+            
+            nightlifeSection.classList.remove('section-hidden');
+            nightlifeSection.classList.add('section-visible', 'fade-in');
+        }
+
         function switchToDateGenerator() {
             clearActiveStates();
             dateGeneratorBtn.classList.add('bg-blue-100', 'text-blue-700');
@@ -494,6 +620,7 @@
 
         homeBtn.addEventListener('click', switchToHome);
         exploreBtn.addEventListener('click', switchToExplore);
+        nightlifeBtn.addEventListener('click', switchToNightlife);
         dateGeneratorBtn.addEventListener('click', switchToDateGenerator);
 
         // Generate placeholder places for explore section
@@ -806,6 +933,298 @@
 
         // Initialize places display
         renderPlaces();
+
+        // Nightlife data
+        const nightlifeData = [
+            {
+                name: "Sky Lounge",
+                category: "lounges",
+                rating: 4.8,
+                location: "uptown",
+                price: "expensive",
+                time: "evening",
+                vibe: "upscale",
+                groupSize: "couple",
+                description: "Rooftop lounge with panoramic city views and craft cocktails",
+                image: "https://images.unsplash.com/photo-1574484284002-952d92456975?w=400&h=250&fit=crop",
+                tags: ["Cocktails", "City Views", "Upscale"],
+                hours: "5 PM - 2 AM"
+            },
+            {
+                name: "The Underground",
+                category: "clubs",
+                rating: 4.5,
+                location: "downtown",
+                price: "moderate",
+                time: "night",
+                vibe: "energetic",
+                groupSize: "large",
+                description: "High-energy nightclub with top DJs and dance floor",
+                image: "https://images.unsplash.com/photo-1571266028243-ad80211e2e67?w=400&h=250&fit=crop",
+                tags: ["Dancing", "DJ", "Club"],
+                hours: "9 PM - 3 AM"
+            },
+            {
+                name: "Jazz Corner",
+                category: "live-music",
+                rating: 4.7,
+                location: "midtown",
+                price: "moderate",
+                time: "evening",
+                vibe: "romantic",
+                groupSize: "couple",
+                description: "Intimate jazz club with live performances every night",
+                image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=250&fit=crop",
+                tags: ["Jazz", "Live Music", "Intimate"],
+                hours: "7 PM - 1 AM"
+            },
+            {
+                name: "Midnight Diner",
+                category: "late-night-eats",
+                rating: 4.4,
+                location: "downtown",
+                price: "budget",
+                time: "late-night",
+                vibe: "relaxed",
+                groupSize: "solo",
+                description: "24-hour diner serving comfort food and late-night cravings",
+                image: "https://images.unsplash.com/photo-1551218808-94e220e084d2?w=400&h=250&fit=crop",
+                tags: ["24/7", "Comfort Food", "Classic"],
+                hours: "24 Hours"
+            },
+            {
+                name: "The Pool Hall",
+                category: "activities",
+                rating: 4.3,
+                location: "suburbs",
+                price: "budget",
+                time: "evening",
+                vibe: "social",
+                groupSize: "small",
+                description: "Classic pool hall with tables, arcade games, and beer",
+                image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=250&fit=crop",
+                tags: ["Pool", "Games", "Casual"],
+                hours: "6 PM - 2 AM"
+            },
+            {
+                name: "Craft Beer Garden",
+                category: "bars",
+                rating: 4.6,
+                location: "waterfront",
+                price: "moderate",
+                time: "evening",
+                vibe: "relaxed",
+                groupSize: "large",
+                description: "Outdoor beer garden with local brews and live music",
+                image: "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=400&h=250&fit=crop",
+                tags: ["Craft Beer", "Outdoor", "Live Music"],
+                hours: "4 PM - 12 AM"
+            },
+            {
+                name: "Electric Arcade",
+                category: "activities",
+                rating: 4.2,
+                location: "midtown",
+                price: "budget",
+                time: "night",
+                vibe: "energetic",
+                groupSize: "small",
+                description: "Retro arcade bar with classic games and neon lights",
+                image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400&h=250&fit=crop",
+                tags: ["Arcade", "Retro", "Games"],
+                hours: "6 PM - 2 AM"
+            },
+            {
+                name: "Wine & Whiskey",
+                category: "bars",
+                rating: 4.9,
+                location: "uptown",
+                price: "expensive",
+                time: "evening",
+                vibe: "upscale",
+                groupSize: "couple",
+                description: "Sophisticated wine and whiskey bar with expert sommelier",
+                image: "https://images.unsplash.com/photo-1569529465841-dfecdab7503b?w=400&h=250&fit=crop",
+                tags: ["Wine", "Whiskey", "Sophisticated"],
+                hours: "5 PM - 1 AM"
+            }
+        ];
+
+        // Nightlife filtering functionality
+        let currentNightlifeFilters = {
+            search: '',
+            time: '',
+            vibe: '',
+            groupSize: '',
+            category: 'all'
+        };
+
+        function filterNightlife() {
+            return nightlifeData.filter(place => {
+                // Search filter
+                if (currentNightlifeFilters.search && !place.name.toLowerCase().includes(currentNightlifeFilters.search.toLowerCase()) &&
+                    !place.description.toLowerCase().includes(currentNightlifeFilters.search.toLowerCase()) &&
+                    !place.tags.some(tag => tag.toLowerCase().includes(currentNightlifeFilters.search.toLowerCase()))) {
+                    return false;
+                }
+
+                // Time filter
+                if (currentNightlifeFilters.time && place.time !== currentNightlifeFilters.time) {
+                    return false;
+                }
+
+                // Vibe filter
+                if (currentNightlifeFilters.vibe && place.vibe !== currentNightlifeFilters.vibe) {
+                    return false;
+                }
+
+                // Group size filter
+                if (currentNightlifeFilters.groupSize && place.groupSize !== currentNightlifeFilters.groupSize) {
+                    return false;
+                }
+
+                // Category filter
+                if (currentNightlifeFilters.category !== 'all' && place.category !== currentNightlifeFilters.category) {
+                    return false;
+                }
+
+                return true;
+            });
+        }
+
+        function createNightlifeCard(place) {
+            const priceSymbols = {
+                'budget': '$',
+                'moderate': '$$',
+                'expensive': '$$$'
+            };
+            
+            const locationNames = {
+                'downtown': 'Downtown',
+                'uptown': 'Uptown',
+                'midtown': 'Midtown',
+                'suburbs': 'Suburbs',
+                'waterfront': 'Waterfront'
+            };
+            
+            return `
+                <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden card-hover">
+                    <div class="aspect-w-16 aspect-h-9 bg-gray-200">
+                        <img src="${place.image}" alt="${place.name}" class="w-full h-48 object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-xs font-medium text-purple-600 bg-purple-100 px-2 py-1 rounded-full">${place.category.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase())}</span>
+                            <div class="flex items-center text-yellow-500">
+                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
+                                <span class="text-sm font-medium text-gray-700 ml-1">${place.rating}</span>
+                            </div>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">${place.name}</h3>
+                        <div class="flex items-center text-gray-500 text-sm mb-2">
+                            <i data-feather="map-pin" class="w-4 h-4 mr-1"></i>
+                            <span class="mr-3">${locationNames[place.location] || place.location}</span>
+                            <i data-feather="clock" class="w-4 h-4 mr-1"></i>
+                            <span class="mr-3">${place.hours}</span>
+                            <i data-feather="dollar-sign" class="w-4 h-4 mr-1"></i>
+                            <span>${priceSymbols[place.price] || place.price}</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">${place.description}</p>
+                        <div class="flex flex-wrap gap-2">
+                            ${place.tags.map(tag => `<span class="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded-full">${tag}</span>`).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderNightlife() {
+            const nightlifeGrid = document.getElementById('nightlife-grid');
+            const filteredNightlife = filterNightlife();
+            nightlifeGrid.innerHTML = filteredNightlife.map(createNightlifeCard).join('');
+            
+            // Update results count
+            const resultsCount = document.getElementById('nightlife-results-count');
+            resultsCount.textContent = `${filteredNightlife.length} nightlife spots found`;
+            
+            // Re-initialize feather icons for new content
+            feather.replace();
+        }
+
+        // Nightlife filter event listeners
+        document.getElementById('nightlife-search-input').addEventListener('input', (e) => {
+            currentNightlifeFilters.search = e.target.value;
+            renderNightlife();
+        });
+
+        document.getElementById('time-filter').addEventListener('change', (e) => {
+            currentNightlifeFilters.time = e.target.value;
+            renderNightlife();
+        });
+
+        document.getElementById('vibe-filter').addEventListener('change', (e) => {
+            currentNightlifeFilters.vibe = e.target.value;
+            renderNightlife();
+        });
+
+        document.getElementById('group-size-filter').addEventListener('change', (e) => {
+            currentNightlifeFilters.groupSize = e.target.value;
+            renderNightlife();
+        });
+
+        // Nightlife category filter buttons
+        document.querySelectorAll('.nightlife-category-filter').forEach(button => {
+            button.addEventListener('click', (e) => {
+                // Remove active class from all buttons
+                document.querySelectorAll('.nightlife-category-filter').forEach(btn => {
+                    btn.classList.remove('active', 'bg-purple-100', 'text-purple-700');
+                    btn.classList.add('bg-gray-100', 'text-gray-700');
+                });
+                
+                // Add active class to clicked button
+                e.target.classList.add('active', 'bg-purple-100', 'text-purple-700');
+                e.target.classList.remove('bg-gray-100', 'text-gray-700');
+                
+                // Update filter
+                currentNightlifeFilters.category = e.target.dataset.category;
+                renderNightlife();
+            });
+        });
+
+        // Clear nightlife filters button
+        document.getElementById('clear-nightlife-filters').addEventListener('click', () => {
+            currentNightlifeFilters = {
+                search: '',
+                time: '',
+                vibe: '',
+                groupSize: '',
+                category: 'all'
+            };
+            
+            // Reset form inputs
+            document.getElementById('nightlife-search-input').value = '';
+            document.getElementById('time-filter').value = '';
+            document.getElementById('vibe-filter').value = '';
+            document.getElementById('group-size-filter').value = '';
+            
+            // Reset category buttons
+            document.querySelectorAll('.nightlife-category-filter').forEach(btn => {
+                btn.classList.remove('active', 'bg-purple-100', 'text-purple-700');
+                btn.classList.add('bg-gray-100', 'text-gray-700');
+            });
+            document.querySelector('.nightlife-category-filter[data-category="all"]').classList.add('active', 'bg-purple-100', 'text-purple-700');
+            document.querySelector('.nightlife-category-filter[data-category="all"]').classList.remove('bg-gray-100', 'text-gray-700');
+            
+            renderNightlife();
+        });
+
+        // Apply nightlife filters button
+        document.getElementById('apply-nightlife-filters').addEventListener('click', () => {
+            renderNightlife();
+        });
+
+        // Initialize nightlife display
+        renderNightlife();
 
         // Date generator functionality
         const dateForm = document.getElementById('date-form');
