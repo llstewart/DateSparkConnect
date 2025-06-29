@@ -311,7 +311,7 @@
                 <!-- Filter Actions -->
                 <div class="flex justify-between items-center">
                     <div class="text-sm text-gray-600">
-                        <span id="results-count">12 places found</span>
+                        <span id="results-count">0 places found</span>
                     </div>
                     <div class="flex gap-2">
                         <button id="clear-filters" class="px-4 py-2 text-gray-600 hover:text-gray-800 text-sm font-medium transition-colors">
@@ -422,7 +422,7 @@
                 <!-- Filter Actions -->
                 <div class="flex justify-between items-center">
                     <div class="text-sm text-gray-600">
-                        <span id="nightlife-results-count">8 nightlife spots found</span>
+                        <span id="nightlife-results-count">0 nightlife spots found</span>
                     </div>
                     <div class="flex gap-2">
                         <button id="clear-nightlife-filters" class="px-4 py-2 text-gray-600 hover:text-gray-800 text-sm font-medium transition-colors">
@@ -623,141 +623,15 @@
         nightlifeBtn.addEventListener('click', switchToNightlife);
         dateGeneratorBtn.addEventListener('click', switchToDateGenerator);
 
-        // Generate placeholder places for explore section
-        const placesData = [
-            {
-                name: "Central Park Coffee",
-                category: "cafes",
-                type: "Cafe",
-                rating: 4.8,
-                location: "downtown",
-                price: "budget",
-                description: "Cozy coffee shop with artisanal brews and local pastries",
-                image: "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=400&h=250&fit=crop",
-                tags: ["Coffee", "Breakfast", "Wi-Fi"]
-            },
-            {
-                name: "Riverside Walking Trail",
-                category: "parks",
-                type: "Park",
-                rating: 4.6,
-                location: "waterfront",
-                price: "free",
-                description: "Scenic walking path along the river with beautiful views",
-                image: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&h=250&fit=crop",
-                tags: ["Nature", "Walking", "Free"]
-            },
-            {
-                name: "The Art Gallery",
-                category: "culture",
-                type: "Culture",
-                rating: 4.7,
-                location: "midtown",
-                price: "moderate",
-                description: "Contemporary art gallery featuring local and international artists",
-                image: "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400&h=250&fit=crop",
-                tags: ["Art", "Culture", "Indoor"]
-            },
-            {
-                name: "Mario's Italian Bistro",
-                category: "restaurants",
-                type: "Restaurant",
-                rating: 4.9,
-                location: "downtown",
-                price: "expensive",
-                description: "Authentic Italian cuisine in a romantic atmosphere",
-                image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400&h=250&fit=crop",
-                tags: ["Italian", "Dinner", "Romantic"]
-            },
-            {
-                name: "Adventure Mini Golf",
-                category: "entertainment",
-                type: "Entertainment",
-                rating: 4.5,
-                location: "suburbs",
-                price: "budget",
-                description: "Fun 18-hole mini golf course with creative obstacles",
-                image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=250&fit=crop",
-                tags: ["Fun", "Games", "Family"]
-            },
-            {
-                name: "Sunset Rooftop Bar",
-                category: "restaurants",
-                type: "Bar",
-                rating: 4.8,
-                location: "uptown",
-                price: "expensive",
-                description: "Stylish rooftop bar with panoramic city views",
-                image: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=400&h=250&fit=crop",
-                tags: ["Drinks", "Views", "Evening"]
-            },
-            {
-                name: "Ocean View Cinema",
-                category: "entertainment",
-                type: "Cinema",
-                rating: 4.4,
-                location: "waterfront",
-                price: "moderate",
-                description: "Modern movie theater with comfortable seating and ocean views",
-                image: "https://images.unsplash.com/photo-1489185078463-c2709f30e4c2?w=400&h=250&fit=crop",
-                tags: ["Movies", "Entertainment", "Views"]
-            },
-            {
-                name: "Green Market Cafe",
-                category: "cafes",
-                type: "Cafe",
-                rating: 4.6,
-                location: "suburbs",
-                price: "budget",
-                description: "Farm-to-table cafe with fresh, locally sourced ingredients",
-                image: "https://images.unsplash.com/photo-1559925393-8be0ec4767c8?w=400&h=250&fit=crop",
-                tags: ["Organic", "Healthy", "Local"]
-            },
-            {
-                name: "Metropolitan Museum",
-                category: "culture",
-                type: "Museum",
-                rating: 4.8,
-                location: "midtown",
-                price: "moderate",
-                description: "Historic museum with extensive collections and special exhibitions",
-                image: "https://images.unsplash.com/photo-1566127992631-137a642a90f4?w=400&h=250&fit=crop",
-                tags: ["History", "Education", "Indoor"]
-            },
-            {
-                name: "Harbor Park",
-                category: "parks",
-                type: "Park",
-                rating: 4.5,
-                location: "waterfront",
-                price: "free",
-                description: "Beautiful waterfront park with playground and picnic areas",
-                image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=250&fit=crop",
-                tags: ["Family", "Picnic", "Water Views"]
-            },
-            {
-                name: "Urban Outfitters Plaza",
-                category: "shopping",
-                type: "Shopping",
-                rating: 4.2,
-                location: "downtown",
-                price: "moderate",
-                description: "Popular shopping center with trendy brands and food court",
-                image: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=400&h=250&fit=crop",
-                tags: ["Fashion", "Food Court", "Brands"]
-            },
-            {
-                name: "Bella's Steakhouse",
-                category: "restaurants",
-                type: "Restaurant",
-                rating: 4.7,
-                location: "uptown",
-                price: "expensive",
-                description: "Premium steakhouse with elegant atmosphere and fine wines",
-                image: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=400&h=250&fit=crop",
-                tags: ["Steakhouse", "Fine Dining", "Wine"]
-            }
-        ];
+        // Places data - Ready for API integration
+        const placesData = [];
+
+        // Function to load places data from API
+        function loadPlacesData() {
+            // TODO: Replace with actual API call
+            // Example: fetch('/api/places').then(response => response.json()).then(data => { placesData = data; renderPlaces(); });
+            console.log('Ready to integrate with places API');
+        }
 
         function createPlaceCard(place) {
             const priceSymbols = {
@@ -849,7 +723,20 @@
         function renderPlaces() {
             const placesGrid = document.getElementById('places-grid');
             const filteredPlaces = filterPlaces();
-            placesGrid.innerHTML = filteredPlaces.map(createPlaceCard).join('');
+            
+            if (filteredPlaces.length === 0) {
+                placesGrid.innerHTML = `
+                    <div class="col-span-full flex flex-col items-center justify-center py-12 text-gray-500">
+                        <i data-feather="map-pin" class="w-16 h-16 mb-4 text-gray-300"></i>
+                        <h3 class="text-lg font-medium text-gray-900 mb-2">No places found</h3>
+                        <p class="text-center max-w-md">
+                            ${placesData.length === 0 ? 'Connect to a data source to start discovering amazing places in your area.' : 'Try adjusting your filters to find more places.'}
+                        </p>
+                    </div>
+                `;
+            } else {
+                placesGrid.innerHTML = filteredPlaces.map(createPlaceCard).join('');
+            }
             
             // Update results count
             const resultsCount = document.getElementById('results-count');
@@ -934,121 +821,15 @@
         // Initialize places display
         renderPlaces();
 
-        // Nightlife data
-        const nightlifeData = [
-            {
-                name: "Sky Lounge",
-                category: "lounges",
-                rating: 4.8,
-                location: "uptown",
-                price: "expensive",
-                time: "evening",
-                vibe: "upscale",
-                groupSize: "couple",
-                description: "Rooftop lounge with panoramic city views and craft cocktails",
-                image: "https://images.unsplash.com/photo-1574484284002-952d92456975?w=400&h=250&fit=crop",
-                tags: ["Cocktails", "City Views", "Upscale"],
-                hours: "5 PM - 2 AM"
-            },
-            {
-                name: "The Underground",
-                category: "clubs",
-                rating: 4.5,
-                location: "downtown",
-                price: "moderate",
-                time: "night",
-                vibe: "energetic",
-                groupSize: "large",
-                description: "High-energy nightclub with top DJs and dance floor",
-                image: "https://images.unsplash.com/photo-1571266028243-ad80211e2e67?w=400&h=250&fit=crop",
-                tags: ["Dancing", "DJ", "Club"],
-                hours: "9 PM - 3 AM"
-            },
-            {
-                name: "Jazz Corner",
-                category: "live-music",
-                rating: 4.7,
-                location: "midtown",
-                price: "moderate",
-                time: "evening",
-                vibe: "romantic",
-                groupSize: "couple",
-                description: "Intimate jazz club with live performances every night",
-                image: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=250&fit=crop",
-                tags: ["Jazz", "Live Music", "Intimate"],
-                hours: "7 PM - 1 AM"
-            },
-            {
-                name: "Midnight Diner",
-                category: "late-night-eats",
-                rating: 4.4,
-                location: "downtown",
-                price: "budget",
-                time: "late-night",
-                vibe: "relaxed",
-                groupSize: "solo",
-                description: "24-hour diner serving comfort food and late-night cravings",
-                image: "https://images.unsplash.com/photo-1551218808-94e220e084d2?w=400&h=250&fit=crop",
-                tags: ["24/7", "Comfort Food", "Classic"],
-                hours: "24 Hours"
-            },
-            {
-                name: "The Pool Hall",
-                category: "activities",
-                rating: 4.3,
-                location: "suburbs",
-                price: "budget",
-                time: "evening",
-                vibe: "social",
-                groupSize: "small",
-                description: "Classic pool hall with tables, arcade games, and beer",
-                image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=250&fit=crop",
-                tags: ["Pool", "Games", "Casual"],
-                hours: "6 PM - 2 AM"
-            },
-            {
-                name: "Craft Beer Garden",
-                category: "bars",
-                rating: 4.6,
-                location: "waterfront",
-                price: "moderate",
-                time: "evening",
-                vibe: "relaxed",
-                groupSize: "large",
-                description: "Outdoor beer garden with local brews and live music",
-                image: "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=400&h=250&fit=crop",
-                tags: ["Craft Beer", "Outdoor", "Live Music"],
-                hours: "4 PM - 12 AM"
-            },
-            {
-                name: "Electric Arcade",
-                category: "activities",
-                rating: 4.2,
-                location: "midtown",
-                price: "budget",
-                time: "night",
-                vibe: "energetic",
-                groupSize: "small",
-                description: "Retro arcade bar with classic games and neon lights",
-                image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400&h=250&fit=crop",
-                tags: ["Arcade", "Retro", "Games"],
-                hours: "6 PM - 2 AM"
-            },
-            {
-                name: "Wine & Whiskey",
-                category: "bars",
-                rating: 4.9,
-                location: "uptown",
-                price: "expensive",
-                time: "evening",
-                vibe: "upscale",
-                groupSize: "couple",
-                description: "Sophisticated wine and whiskey bar with expert sommelier",
-                image: "https://images.unsplash.com/photo-1569529465841-dfecdab7503b?w=400&h=250&fit=crop",
-                tags: ["Wine", "Whiskey", "Sophisticated"],
-                hours: "5 PM - 1 AM"
-            }
-        ];
+        // Nightlife data - Ready for API integration
+        const nightlifeData = [];
+
+        // Function to load nightlife data from API
+        function loadNightlifeData() {
+            // TODO: Replace with actual API call
+            // Example: fetch('/api/nightlife').then(response => response.json()).then(data => { nightlifeData = data; renderNightlife(); });
+            console.log('Ready to integrate with nightlife API');
+        }
 
         // Nightlife filtering functionality
         let currentNightlifeFilters = {
@@ -1141,7 +922,20 @@
         function renderNightlife() {
             const nightlifeGrid = document.getElementById('nightlife-grid');
             const filteredNightlife = filterNightlife();
-            nightlifeGrid.innerHTML = filteredNightlife.map(createNightlifeCard).join('');
+            
+            if (filteredNightlife.length === 0) {
+                nightlifeGrid.innerHTML = `
+                    <div class="col-span-full flex flex-col items-center justify-center py-12 text-gray-500">
+                        <i data-feather="moon" class="w-16 h-16 mb-4 text-gray-300"></i>
+                        <h3 class="text-lg font-medium text-gray-900 mb-2">No nightlife spots found</h3>
+                        <p class="text-center max-w-md">
+                            ${nightlifeData.length === 0 ? 'Connect to a data source to start discovering amazing nightlife venues in your area.' : 'Try adjusting your filters to find more nightlife options.'}
+                        </p>
+                    </div>
+                `;
+            } else {
+                nightlifeGrid.innerHTML = filteredNightlife.map(createNightlifeCard).join('');
+            }
             
             // Update results count
             const resultsCount = document.getElementById('nightlife-results-count');
@@ -1232,110 +1026,8 @@
         const loadingState = document.getElementById('loading-state');
         const generateBtn = document.getElementById('generate-btn');
 
-        const dateIdeas = {
-            romantic: {
-                low: [
-                    "Sunset picnic in the park with homemade snacks and soft music",
-                    "Candlelit dinner at home followed by stargazing on the balcony",
-                    "Coffee date at a cozy local cafe with board games"
-                ],
-                medium: [
-                    "Wine tasting at a local vineyard with a scenic drive",
-                    "Couples massage at a day spa followed by dinner",
-                    "Cooking class together learning to make pasta"
-                ],
-                high: [
-                    "Hot air balloon ride with champagne brunch",
-                    "Weekend getaway to a luxury cabin in the mountains",
-                    "Private yacht dinner cruise with live music"
-                ]
-            },
-            fun: {
-                low: [
-                    "Mini golf followed by ice cream and arcade games",
-                    "Bowling night with pizza and friendly competition",
-                    "Karaoke session at a local bar with craft cocktails"
-                ],
-                medium: [
-                    "Escape room challenge followed by dinner at a theme restaurant",
-                    "Comedy show with VIP seating and pre-show drinks",
-                    "Paint and sip class creating art together"
-                ],
-                high: [
-                    "Private karaoke room with premium bottle service",
-                    "VIP concert tickets with backstage meet and greet",
-                    "Weekend festival passes with luxury camping"
-                ]
-            },
-            adventurous: {
-                low: [
-                    "Hiking trail exploration with packed lunch and photography",
-                    "Rock climbing at an indoor gym with energy smoothies",
-                    "Bike tour of the city with stops at local landmarks"
-                ],
-                medium: [
-                    "Zip-lining adventure followed by a riverside dinner",
-                    "Kayaking expedition with picnic lunch on the water",
-                    "Skydiving experience with celebration dinner"
-                ],
-                high: [
-                    "Helicopter tour of the city with champagne service",
-                    "Multi-day hiking and camping adventure with guide",
-                    "Bungee jumping followed by luxury resort weekend"
-                ]
-            },
-            relaxed: {
-                low: [
-                    "Farmers market stroll followed by cooking together",
-                    "Beach day with book reading and casual lunch",
-                    "Movie marathon at home with homemade popcorn"
-                ],
-                medium: [
-                    "Spa day with couples treatment and healthy lunch",
-                    "Wine and cheese tasting at a local vineyard",
-                    "Meditation workshop followed by vegetarian dinner"
-                ],
-                high: [
-                    "Luxury resort day pass with pool and spa access",
-                    "Private chef experience at home with wine pairing",
-                    "Weekend retreat at a wellness center"
-                ]
-            },
-            cultural: {
-                low: [
-                    "Museum visit followed by coffee and discussion",
-                    "Local art gallery opening with wine reception",
-                    "Historical walking tour with lunch at heritage cafe"
-                ],
-                medium: [
-                    "Theater performance with pre-show dinner",
-                    "Cultural festival with food tasting and performances",
-                    "Art workshop learning pottery or painting"
-                ],
-                high: [
-                    "Opera or ballet with premium seats and champagne",
-                    "Private museum tour with curator and gourmet lunch",
-                    "Cultural travel experience to nearby historic city"
-                ]
-            },
-            outdoor: {
-                low: [
-                    "Nature photography walk in botanical gardens",
-                    "Outdoor movie screening with blanket and snacks",
-                    "Geocaching adventure with treasure hunt excitement"
-                ],
-                medium: [
-                    "Camping trip with star gazing and campfire cooking",
-                    "Outdoor adventure park with zip lines and obstacles",
-                    "Fishing trip with riverside picnic lunch"
-                ],
-                high: [
-                    "Glamping experience with luxury outdoor amenities",
-                    "Guided wilderness expedition with professional equipment",
-                    "Safari park experience with VIP animal encounters"
-                ]
-            }
-        };
+        // Date ideas data - Ready for API integration
+        const dateIdeas = {};
 
         function generateDateIdea(formData) {
             const vibe = formData.get('vibe') || 'relaxed';
@@ -1343,33 +1035,16 @@
             const location = formData.get('location') || 'your area';
             const time = formData.get('time') || 'any time';
             
-            const vibeIdeas = dateIdeas[vibe] || dateIdeas.relaxed;
-            const budgetIdeas = vibeIdeas[budget] || vibeIdeas.medium;
-            const randomIdea = budgetIdeas[Math.floor(Math.random() * budgetIdeas.length)];
-            
-            const timeEmoji = {
-                morning: '🌅',
-                afternoon: '☀️',
-                evening: '🌆',
-                night: '🌙'
-            };
-            
-            const vibeEmoji = {
-                romantic: '💕',
-                fun: '🎉',
-                adventurous: '🏔️',
-                relaxed: '😌',
-                cultural: '🎭',
-                outdoor: '🌲'
-            };
+            // TODO: Replace with actual API call
+            // Example: return fetch('/api/generate-date-idea', { method: 'POST', body: formData }).then(response => response.json());
             
             return {
-                idea: randomIdea,
+                idea: 'Connect to API for personalized date ideas based on your preferences.',
                 location: location,
-                vibe: vibe,
+                vibe: 'Setup Required',
                 time: time,
-                vibeEmoji: vibeEmoji[vibe] || '💫',
-                timeEmoji: timeEmoji[time] || '⏰'
+                vibeEmoji: '⚙️',
+                timeEmoji: '⏰'
             };
         }
 
