@@ -86,10 +86,7 @@
                         <i data-feather="search" class="w-4 h-4 inline mr-2"></i>
                         Explore
                     </button>
-                    <button id="challenges-btn" class="nav-btn px-4 py-2 rounded-lg font-medium transition-all duration-200 text-gray-600 hover:bg-gray-100">
-                        <i data-feather="zap" class="w-4 h-4 inline mr-2"></i>
-                        Challenges
-                    </button>
+
                     <button id="nightlife-btn" class="nav-btn px-4 py-2 rounded-lg font-medium transition-all duration-200 text-gray-600 hover:bg-gray-100">
                         <i data-feather="moon" class="w-4 h-4 inline mr-2"></i>
                         Nightlife
@@ -334,170 +331,7 @@
             </div>
         </section>
 
-        <!-- Challenges Section - TRENDY GAMIFICATION FEATURE -->
-        <section id="challenges-section" class="section-hidden">
-            <div class="mb-8">
-                <h2 class="text-3xl font-bold text-gray-900 mb-2">Local Challenges & Rewards</h2>
-                <p class="text-gray-600">Level up your local exploration with fun challenges, earn rewards, and compete with friends</p>
-            </div>
-            
-            <!-- Challenge Status Dashboard -->
-            <div class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-xl p-6 mb-8 text-white">
-                <div class="flex items-center justify-between mb-4">
-                    <div>
-                        <h3 class="text-xl font-bold mb-1">Your Explorer Level</h3>
-                        <p class="text-white/80">Keep exploring to unlock new challenges!</p>
-                    </div>
-                    <div class="text-right">
-                        <div class="text-3xl font-bold">Level 1</div>
-                        <div class="text-sm text-white/80">Beginner Explorer</div>
-                    </div>
-                </div>
-                <div class="bg-white/20 rounded-full h-3 mb-2">
-                    <div class="bg-white rounded-full h-3 w-1/4 transition-all duration-300"></div>
-                </div>
-                <div class="flex justify-between text-sm text-white/80">
-                    <span>0 XP</span>
-                    <span>100 XP to Level 2</span>
-                </div>
-            </div>
-            
-            <!-- Challenge Categories -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-                <!-- Food Explorer Challenge -->
-                <div class="bg-gradient-to-br from-orange-400 to-red-500 rounded-xl p-6 text-white relative overflow-hidden card-hover">
-                    <div class="relative z-10">
-                        <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center mb-4">
-                            <i data-feather="coffee" class="w-6 h-6"></i>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2">Food Explorer</h3>
-                        <p class="text-white/90 mb-4">Try 5 different local restaurants and rate them. Earn 50 XP per visit!</p>
-                        <div class="flex items-center justify-between">
-                            <span class="text-sm font-medium">Progress: 0/5</span>
-                            <button class="bg-white/20 hover:bg-white/30 text-white px-4 py-2 rounded-lg text-sm font-medium transition-all backdrop-blur-sm">
-                                Start Challenge
-                            </button>
-                        </div>
-                    </div>
-                    <div class="absolute -top-4 -right-4 w-20 h-20 bg-white/10 rounded-full"></div>
-                </div>
-                
-                <!-- Social Butterfly Challenge -->
-                <div class="bg-gradient-to-br from-pink-400 to-purple-500 rounded-xl p-6 text-white relative overflow-hidden card-hover">
-                    <div class="relative z-10">
-                        <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center mb-4">
-                            <i data-feather="users" class="w-6 h-6"></i>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2">Social Butterfly</h3>
-                        <p class="text-white/90 mb-4">Visit 3 places with friends and share photos. Tag your crew for bonus XP!</p>
-                        <div class="flex items-center justify-between">
-                            <span class="text-sm font-medium">Progress: 0/3</span>
-                            <button class="bg-white/20 hover:bg-white/30 text-white px-4 py-2 rounded-lg text-sm font-medium transition-all backdrop-blur-sm">
-                                Start Challenge
-                            </button>
-                        </div>
-                    </div>
-                    <div class="absolute -top-4 -right-4 w-20 h-20 bg-white/10 rounded-full"></div>
-                </div>
-                
-                <!-- Night Owl Challenge -->
-                <div class="bg-gradient-to-br from-purple-500 to-indigo-600 rounded-xl p-6 text-white relative overflow-hidden card-hover">
-                    <div class="relative z-10">
-                        <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center mb-4">
-                            <i data-feather="moon" class="w-6 h-6"></i>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2">Night Owl</h3>
-                        <p class="text-white/90 mb-4">Explore nightlife spots and check-in after 8PM. Earn double XP on weekend nights!</p>
-                        <div class="flex items-center justify-between">
-                            <span class="text-sm font-medium">Progress: 0/4</span>
-                            <button class="bg-white/20 hover:bg-white/30 text-white px-4 py-2 rounded-lg text-sm font-medium transition-all backdrop-blur-sm">
-                                Start Challenge
-                            </button>
-                        </div>
-                    </div>
-                    <div class="absolute -top-4 -right-4 w-20 h-20 bg-white/10 rounded-full"></div>
-                </div>
-            </div>
-            
-            <!-- Leaderboard & Social Features -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <!-- Leaderboard -->
-                <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-                    <div class="flex items-center justify-between mb-6">
-                        <h3 class="text-xl font-bold text-gray-900">Weekly Leaderboard</h3>
-                        <div class="flex items-center space-x-2">
-                            <i data-feather="trophy" class="w-5 h-5 text-yellow-500"></i>
-                            <span class="text-sm font-medium text-gray-600">Top Explorers</span>
-                        </div>
-                    </div>
-                    
-                    <div id="leaderboard-list" class="space-y-4">
-                        <!-- Leaderboard will be loaded here -->
-                        <div class="text-center py-8 text-gray-500">
-                            <i data-feather="users" class="w-12 h-12 mx-auto mb-4 text-gray-300"></i>
-                            <h3 class="text-lg font-medium mb-2">Join the Competition</h3>
-                            <p class="text-sm">Complete challenges to appear on the leaderboard and compete with other local explorers!</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Rewards & Badges -->
-                <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-                    <div class="flex items-center justify-between mb-6">
-                        <h3 class="text-xl font-bold text-gray-900">Your Rewards</h3>
-                        <div class="flex items-center space-x-2">
-                            <i data-feather="gift" class="w-5 h-5 text-purple-500"></i>
-                            <span class="text-sm font-medium text-gray-600">Unlock More</span>
-                        </div>
-                    </div>
-                    
-                    <div id="rewards-grid" class="grid grid-cols-3 gap-4">
-                        <!-- Locked Badges -->
-                        <div class="bg-gray-100 rounded-lg p-4 text-center">
-                            <div class="w-12 h-12 bg-gray-300 rounded-full mx-auto mb-2 flex items-center justify-center">
-                                <i data-feather="lock" class="w-6 h-6 text-gray-500"></i>
-                            </div>
-                            <span class="text-xs text-gray-500">Foodie Badge</span>
-                        </div>
-                        
-                        <div class="bg-gray-100 rounded-lg p-4 text-center">
-                            <div class="w-12 h-12 bg-gray-300 rounded-full mx-auto mb-2 flex items-center justify-center">
-                                <i data-feather="lock" class="w-6 h-6 text-gray-500"></i>
-                            </div>
-                            <span class="text-xs text-gray-500">Social Star</span>
-                        </div>
-                        
-                        <div class="bg-gray-100 rounded-lg p-4 text-center">
-                            <div class="w-12 h-12 bg-gray-300 rounded-full mx-auto mb-2 flex items-center justify-center">
-                                <i data-feather="lock" class="w-6 h-6 text-gray-500"></i>
-                            </div>
-                            <span class="text-xs text-gray-500">Night Explorer</span>
-                        </div>
-                        
-                        <div class="bg-gray-100 rounded-lg p-4 text-center">
-                            <div class="w-12 h-12 bg-gray-300 rounded-full mx-auto mb-2 flex items-center justify-center">
-                                <i data-feather="lock" class="w-6 h-6 text-gray-500"></i>
-                            </div>
-                            <span class="text-xs text-gray-500">Local Legend</span>
-                        </div>
-                        
-                        <div class="bg-gray-100 rounded-lg p-4 text-center">
-                            <div class="w-12 h-12 bg-gray-300 rounded-full mx-auto mb-2 flex items-center justify-center">
-                                <i data-feather="lock" class="w-6 h-6 text-gray-500"></i>
-                            </div>
-                            <span class="text-xs text-gray-500">Weekend Warrior</span>
-                        </div>
-                        
-                        <div class="bg-gray-100 rounded-lg p-4 text-center">
-                            <div class="w-12 h-12 bg-gray-300 rounded-full mx-auto mb-2 flex items-center justify-center">
-                                <i data-feather="lock" class="w-6 h-6 text-gray-500"></i>
-                            </div>
-                            <span class="text-xs text-gray-500">Culture Vulture</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+
 
         <!-- Nightlife Section -->
         <section id="nightlife-section" class="section-hidden">
@@ -732,22 +566,20 @@
         // Navigation functionality
         const homeBtn = document.getElementById('home-btn');
         const exploreBtn = document.getElementById('explore-btn');
-        const challengesBtn = document.getElementById('challenges-btn');
         const nightlifeBtn = document.getElementById('nightlife-btn');
         const dateGeneratorBtn = document.getElementById('date-generator-btn');
         const landingSection = document.getElementById('landing-section');
         const exploreSection = document.getElementById('explore-section');
-        const challengesSection = document.getElementById('challenges-section');
         const nightlifeSection = document.getElementById('nightlife-section');
         const dateGeneratorSection = document.getElementById('date-generator-section');
 
         function clearActiveStates() {
-            [homeBtn, exploreBtn, challengesBtn, nightlifeBtn, dateGeneratorBtn].forEach(btn => {
+            [homeBtn, exploreBtn, nightlifeBtn, dateGeneratorBtn].forEach(btn => {
                 btn.classList.remove('bg-blue-100', 'text-blue-700');
                 btn.classList.add('text-gray-600', 'hover:bg-gray-100');
             });
             
-            [landingSection, exploreSection, challengesSection, nightlifeSection, dateGeneratorSection].forEach(section => {
+            [landingSection, exploreSection, nightlifeSection, dateGeneratorSection].forEach(section => {
                 section.classList.add('section-hidden');
                 section.classList.remove('section-visible');
             });
@@ -771,14 +603,7 @@
             exploreSection.classList.add('section-visible', 'fade-in');
         }
 
-        function switchToChallenges() {
-            clearActiveStates();
-            challengesBtn.classList.add('bg-blue-100', 'text-blue-700');
-            challengesBtn.classList.remove('text-gray-600', 'hover:bg-gray-100');
-            
-            challengesSection.classList.remove('section-hidden');
-            challengesSection.classList.add('section-visible', 'fade-in');
-        }
+
 
         function switchToNightlife() {
             clearActiveStates();
@@ -800,7 +625,6 @@
 
         homeBtn.addEventListener('click', switchToHome);
         exploreBtn.addEventListener('click', switchToExplore);
-        challengesBtn.addEventListener('click', switchToChallenges);
         nightlifeBtn.addEventListener('click', switchToNightlife);
         dateGeneratorBtn.addEventListener('click', switchToDateGenerator);
 
@@ -1002,89 +826,7 @@
         // Initialize places display
         renderPlaces();
 
-        // Challenges Section Data and Functionality
-        const challengesData = [];
-        const leaderboardData = [];
-        let userLevel = 1;
-        let userXP = 0;
 
-        // Function to load challenges from API
-        function loadChallengesData() {
-            // TODO: Replace with actual API call
-            // Example: fetch('/api/challenges').then(response => response.json()).then(data => { challengesData = data; renderChallenges(); });
-            console.log('Ready to integrate with Challenges API');
-        }
-
-        // Function to load leaderboard from API
-        function loadLeaderboardData() {
-            // TODO: Replace with actual API call
-            // Example: fetch('/api/leaderboard').then(response => response.json()).then(data => { leaderboardData = data; renderLeaderboard(); });
-            console.log('Ready to integrate with Leaderboard API');
-        }
-
-        // Challenges functionality
-        function renderLeaderboard() {
-            const leaderboardList = document.getElementById('leaderboard-list');
-            
-            if (leaderboardData.length === 0) {
-                leaderboardList.innerHTML = `
-                    <div class="text-center py-8 text-gray-500">
-                        <i data-feather="users" class="w-12 h-12 mx-auto mb-4 text-gray-300"></i>
-                        <h3 class="text-lg font-medium mb-2">Join the Competition</h3>
-                        <p class="text-sm">Complete challenges to appear on the leaderboard and compete with other local explorers!</p>
-                    </div>
-                `;
-            } else {
-                leaderboardList.innerHTML = leaderboardData.map(createLeaderboardEntry).join('');
-            }
-            
-            // Re-initialize feather icons
-            feather.replace();
-        }
-
-        function createLeaderboardEntry(entry, index) {
-            const medals = ['🥇', '🥈', '🥉'];
-            const medal = index < 3 ? medals[index] : `#${index + 1}`;
-            
-            return `
-                <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-                    <div class="flex items-center space-x-3">
-                        <span class="text-lg font-bold text-gray-600">${medal}</span>
-                        <div>
-                            <h4 class="font-semibold text-gray-900">${entry.username}</h4>
-                            <p class="text-sm text-gray-500">Level ${entry.level} Explorer</p>
-                        </div>
-                    </div>
-                    <div class="text-right">
-                        <div class="font-bold text-purple-600">${entry.totalXP} XP</div>
-                        <div class="text-xs text-gray-500">${entry.challengesCompleted} challenges</div>
-                    </div>
-                </div>
-            `;
-        }
-
-        // Challenge interaction functionality
-        function startChallenge(challengeType) {
-            // TODO: Implement challenge start logic
-            console.log(`Starting ${challengeType} challenge`);
-            // This would typically make an API call to register the user for the challenge
-        }
-
-        // Add event listeners for challenge buttons
-        document.addEventListener('DOMContentLoaded', () => {
-            // Add click handlers for challenge start buttons
-            document.querySelectorAll('[data-challenge-type]').forEach(button => {
-                button.addEventListener('click', (e) => {
-                    const challengeType = e.target.dataset.challengeType;
-                    startChallenge(challengeType);
-                });
-            });
-        });
-
-        // Initialize Challenges section
-        loadChallengesData();
-        loadLeaderboardData();
-        renderLeaderboard();
 
         // Nightlife data - Ready for API integration
         const nightlifeData = [];
